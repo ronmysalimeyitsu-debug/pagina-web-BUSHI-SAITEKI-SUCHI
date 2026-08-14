@@ -1,27 +1,39 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI()
-
-# Allow local frontend dev to call this API
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.get("/api/health")
-def health():
-    return {"status": "ok"}
-
-
 @app.get("/api/menu")
 def menu():
     return [
-        {"id": 1, "name": "Sushi Rolls", "price": 12.5, "desc": "Rolls variados", "img": "/menu/item1.svg"},
-        {"id": 2, "name": "Nigiri", "price": 9.0, "desc": "Pescado sobre arroz", "img": "/menu/item2.svg"},
-        {"id": 3, "name": "Sashimi", "price": 14.0, "desc": "Pescado en láminas", "img": "/menu/item3.svg"},
+        {
+            "id": 1, 
+            "name": "Fuji Roll", 
+            "price": 15.0, 
+            "desc": "Rollo tempurizado con cobertura de cereal, queso crema, aguacate, cebollín y camarones.", 
+            "img": "/fuji roll.jfif" 
+        },
+        {
+            "id": 2, 
+            "name": "Saiteki Ocean", 
+            "price": 18.0, 
+            "desc": "Ensalada de wakame y cangrejo, salmón al grill y sashimi de atún sellado.", 
+            "img": "/Saiteki Ocean.jfif"
+        },
+        {
+            "id": 3, 
+            "name": "Zen Roll", 
+            "price": 12.0, 
+            "desc": "Uramaki con zanahoria kimpa, pepino, aguacate y cebollín.", 
+            "img": "/Zen roll.jfif"
+        },
+        {
+            "id": 4, 
+            "name": "Sashimi de Salmón", 
+            "price": 14.0, 
+            "desc": "Cortes frescos de salmón premium de alta calidad.", 
+            "img": "/sashimi de salmon.jfif"
+        },
+        {
+            "id": 5, 
+            "name": "Bushi Crispy Pizza", 
+            "price": 16.0, 
+            "desc": "Nuestra deliciosa pizza sushi crujiente con los mejores ingredientes.", 
+            "img": "/Bushi-crispy-pizza.jfif"
+        }
     ]
