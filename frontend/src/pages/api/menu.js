@@ -19,11 +19,23 @@ export default async function handler(req, res) {
     if (!r.ok) {
       const text = await r.text()
       console.error('Upstream fetch failed', { url, status: r.status, body: text.slice(0, 2000) })
-      return res.status(502).json({ error: 'upstream_error', status: r.status, body: text })
+      // Fallback: return static menu in production so the frontend still shows data
+      const staticMenu = [
+        { id: 1, name: 'Sushi Rolls', price: 12.5, desc: 'Rolls variados', img: '/menu/item1.png' },
+        { id: 2, name: 'Nigiri', price: 9.0, desc: 'Pescado sobre arroz', img: '/menu/item2.png' },
+        { id: 3, name: 'Sashimi', price: 14.0, desc: 'Pescado en láminas', img: '/menu/item3.png' }
+      ]
+      return res.status(200).json(staticMenu)
     }
     const data = await r.json()
     res.status(r.status).json(data)
   } catch (err) {
-    res.status(500).json({ error: err.message })
+    console.error('Proxy handler error', err)
+    const staticMenu = [
+      { id: 1, name: 'Sushi Rolls', price: 12.5, desc: 'Rolls variados', img: '/menu/item1.png' },
+      { id: 2, name: 'Nigiri', price: 9.0, desc: 'Pescado sobre arroz', img: '/menu/item2.png' },
+      { id: 3, name: 'Sashimi', price: 14.0, desc: 'Pescado en láminas', img: '/menu/item3.png' }
+    ]
+    res.status(200).json(staticMenu)
   }
 }
