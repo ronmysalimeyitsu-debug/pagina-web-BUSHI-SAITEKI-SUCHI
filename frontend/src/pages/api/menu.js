@@ -16,6 +16,11 @@ export default async function handler(req, res) {
       }
     }
     const r = await fetch(url)
+    if (!r.ok) {
+      const text = await r.text()
+      console.error('Upstream fetch failed', { url, status: r.status, body: text.slice(0, 2000) })
+      return res.status(502).json({ error: 'upstream_error', status: r.status, body: text })
+    }
     const data = await r.json()
     res.status(r.status).json(data)
   } catch (err) {
