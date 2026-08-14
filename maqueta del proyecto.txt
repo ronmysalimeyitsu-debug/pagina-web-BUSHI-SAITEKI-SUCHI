@@ -1,0 +1,29 @@
+bushi-saiteki/             <-- Raíz del Repositorio Git
+├── .github/              <-- Workflows de CI/CD (GitHub Actions)
+│   └── workflows/
+│       └── deploy.yml
+├── .vercel/               <-- Configuración local de Vercel
+├── backend/               <-- Microservicio Python (API)
+│   ├── app/
+│   │   ├── api/          <-- Endpoints (routes.py, menu.py)
+│   │   ├── core/         <-- Configuración, DB connection (database.py)
+│   │   ├── models/       <-- Modelos SQLAlchemy (menu_item.py)
+│   │   └── schemas/      <-- Schemas Pydantic (validation)
+│   ├── static/           <-- Donde guardaremos image_5.png y image_6.png
+│   │   └── images/
+│   ├── .gitignore
+│   ├── requirements.txt <-- FastAPI, SQLAlchemy, psycopg2-binary
+│   ├── vercel.json       <-- Configuración crucial para el Runtime de Python
+│   └── main.py           <-- Punto de entrada de la API
+├── frontend/              <-- Next.js (React) Application
+│   ├── public/           <-- Assets estáticos
+│   ├── src/
+│   │   ├── app/          <-- App Router (page.tsx, layout.tsx)
+│   │   ├── components/   <-- Componentes (MenuCard.tsx, Hero.tsx)
+│   │   └── lib/          <-- Fetching logic (api.ts)
+│   ├── .gitignore
+│   ├── next.config.js
+│   ├── package.json
+│   └── tailwind.config.js <-- Recomendado para estilos rápidos
+├── README.md
+└── vercel.json           <-- Rutas de routing global para Vercel
