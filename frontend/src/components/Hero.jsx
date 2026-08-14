@@ -5,8 +5,8 @@ export default function Hero() {
     <section>
       <div className="flex items-center gap-4">
         <picture>
-          <source type="image/webp" srcSet="/logo.webp 1x, /logo@2x.webp 2x" />
-          <img src="/logo.png" srcSet="/logo.png 1x, /logo@2x.png 2x" alt="Bushi logo" className="w-24 h-24 object-contain" />
+          <source type="image/svg+xml" srcSet="/logo.svg 1x, /logo@2x.svg 2x" />
+          <img src="/logo.svg" srcSet="/logo.svg 1x, /logo@2x.svg 2x" alt="Bushi logo" className="w-24 h-24 object-contain" />
         </picture>
         <div>
           <h1>Bushi Saiteki Suchi</h1>
