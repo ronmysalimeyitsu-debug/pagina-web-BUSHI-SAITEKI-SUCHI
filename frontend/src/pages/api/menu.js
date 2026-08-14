@@ -7,8 +7,13 @@ export default async function handler(req, res) {
     if (isDev) {
       url = `${DEV_BACKEND}/api/menu`
     } else {
-      const host = process.env.VERCEL_URL || req.headers['x-forwarded-host'] || req.headers.host
-      url = `https://${host}/api/backend/menu`
+      const prodBackend = process.env.NEXT_PUBLIC_API_URL
+      if (prodBackend) {
+        url = `${prodBackend.replace(/\/$/, '')}/api/menu`
+      } else {
+        const host = process.env.VERCEL_URL || req.headers['x-forwarded-host'] || req.headers.host
+        url = `https://${host}/api/backend/menu`
+      }
     }
     const r = await fetch(url)
     const data = await r.json()
