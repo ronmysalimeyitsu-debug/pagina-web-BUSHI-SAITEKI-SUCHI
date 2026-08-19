@@ -108,36 +108,123 @@ export default function Home() {
         backgroundColor: 'rgba(15, 15, 20, 0.88)', 
         backdropFilter: 'blur(10px)',
         color: 'white', 
-        padding: '35px 20px', 
+        padding: '30px 20px', 
         display: 'flex', 
+        flexDirection: 'column',
         alignItems: 'center', 
         justifyContent: 'center',
-        flexWrap: 'wrap',
-        gap: '25px',
+        gap: '20px',
         borderBottom: '2px solid #d4af37',
         boxShadow: '0 4px 25px rgba(0,0,0,0.8)',
         width: '100%',
         boxSizing: 'border-box'
       }}>
-        <img 
-          src="/images/logo-bushi.jpg" 
-          alt="Bushi Saiteki Logo" 
-          style={{ 
-            width: '120px', 
-            height: '120px', 
-            borderRadius: '50%', 
-            objectFit: 'cover', 
-            border: '3px solid #d4af37', 
-            boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)' 
-          }} 
-        />
-        <div style={{ textAlign: 'center' }}>
-          <h1 style={{ margin: 0, fontSize: '2.8rem', letterSpacing: '3px', color: '#f39c12', fontFamily: 'serif' }}>
-            BUSHI SAITEKI
-          </h1>
-          <p style={{ margin: '8px 0 0 0', color: '#ddd', fontSize: '1.1rem', fontStyle: 'italic' }}>
-            Auténtico Sushi de Autor & Street Food Trailer
-          </p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+          <img 
+            src="/images/logo-bushi.jpg" 
+            alt="Bushi Saiteki Logo" 
+            style={{ 
+              width: '110px', 
+              height: '110px', 
+              borderRadius: '50%', 
+              objectFit: 'cover', 
+              border: '3px solid #d4af37', 
+              boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)' 
+            }} 
+          />
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{ margin: 0, fontSize: '2.8rem', letterSpacing: '3px', color: '#f39c12', fontFamily: 'serif' }}>
+              BUSHI SAITEKI
+            </h1>
+            <p style={{ margin: '8px 0 0 0', color: '#ddd', fontSize: '1.1rem', fontStyle: 'italic' }}>
+              Auténtico Sushi de Autor & Street Food Trailer
+            </p>
+          </div>
+        </div>
+
+        {/* Barra Rápida de Contacto & Redes en Header */}
+        <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '10px' }}>
+          <a 
+            href="https://wa.me/584142044493?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Bushi%20Saiteki" 
+            target="_blank" 
+            rel="noreferrer"
+            style={{
+              backgroundColor: '#25D366',
+              color: 'white',
+              padding: '8px 16px',
+              borderRadius: '25px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              boxShadow: '0 4px 12px rgba(37, 211, 102, 0.4)'
+            }}
+          >
+            💬 Pedir WhatsApp 1
+          </a>
+          <a 
+            href="https://wa.me/584242882861?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Bushi%20Saiteki" 
+            target="_blank" 
+            rel="noreferrer"
+            style={{
+              backgroundColor: '#25D366',
+              color: 'white',
+              padding: '8px 16px',
+              borderRadius: '25px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              boxShadow: '0 4px 12px rgba(37, 211, 102, 0.4)'
+            }}
+          >
+            💬 Pedir WhatsApp 2
+          </a>
+          <a 
+            href="https://www.instagram.com/bushisaiteki" 
+            target="_blank" 
+            rel="noreferrer"
+            style={{
+              backgroundColor: '#C13584',
+              color: 'white',
+              padding: '8px 16px',
+              borderRadius: '25px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              boxShadow: '0 4px 12px rgba(193, 53, 132, 0.4)'
+            }}
+          >
+            📸 Instagram
+          </a>
+          <a 
+            href="https://www.tiktok.com/@bushi.saiteki" 
+            target="_blank" 
+            rel="noreferrer"
+            style={{
+              backgroundColor: '#000000',
+              border: '1px solid #d4af37',
+              color: 'white',
+              padding: '8px 16px',
+              borderRadius: '25px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '0.9rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.6)'
+            }}
+          >
+            🎵 TikTok
+          </a>
         </div>
       </header>
 
@@ -199,9 +286,14 @@ export default function Home() {
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px' }}>
                       <span style={{ fontWeight: 'bold', fontSize: '1.3rem', color: '#2ecc71' }}>${item.price}</span>
-                      <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(243, 156, 18, 0.2)', padding: '5px 10px', borderRadius: '5px', color: '#f39c12', border: '1px solid #f39c12' }}>
-                        Recomendado
-                      </span>
+                      <a 
+                        href={`https://wa.me/584142044493?text=Hola!%20Quiero%20pedir:%20${encodeURIComponent(item.name)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ fontSize: '0.82rem', backgroundColor: 'rgba(46, 204, 113, 0.2)', padding: '6px 12px', borderRadius: '6px', color: '#2ecc71', border: '1px solid #2ecc71', textDecoration: 'none', fontWeight: 'bold' }}
+                      >
+                        Pedir este plato
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -209,6 +301,52 @@ export default function Home() {
             </div>
           </div>
         ))}
+
+        {/* Sección de Pedidos Directos y Redes Sociales (Footer Interno) */}
+        <div style={{
+          marginTop: '60px',
+          padding: '30px',
+          backgroundColor: 'rgba(20, 20, 26, 0.95)',
+          borderRadius: '12px',
+          border: '1px solid rgba(212, 175, 55, 0.4)',
+          textAlign: 'center'
+        }}>
+          <h3 style={{ color: '#f39c12', fontSize: '1.8rem', margin: '0 0 10px 0' }}>¡Haz Tu Pedido Directo!</h3>
+          <p style={{ color: '#ccc', marginBottom: '25px' }}>Atención rápida por WhatsApp o llamadas telefónicas:</p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '30px' }}>
+            <div style={{ backgroundColor: '#181820', padding: '15px 25px', borderRadius: '10px', border: '1px solid #333' }}>
+              <p style={{ margin: '0 0 8px 0', color: '#aaa', fontSize: '0.85rem' }}>LÍNEA PRINCIPAL</p>
+              <a href="tel:04142044493" style={{ color: '#f39c12', fontSize: '1.2rem', fontWeight: 'bold', textDecoration: 'none', display: 'block', marginBottom: '8px' }}>
+                📞 0414-2044493
+              </a>
+              <a href="https://wa.me/584142044493?text=Hola!%20Quiero%20realizar%20un%20pedido" target="_blank" rel="noreferrer" style={{ color: '#2ecc71', fontSize: '0.9rem', textDecoration: 'none' }}>
+                💬 Abrir WhatsApp
+              </a>
+            </div>
+
+            <div style={{ backgroundColor: '#181820', padding: '15px 25px', borderRadius: '10px', border: '1px solid #333' }}>
+              <p style={{ margin: '0 0 8px 0', color: '#aaa', fontSize: '0.85rem' }}>LÍNEA SECUNDARIA</p>
+              <a href="tel:04242882861" style={{ color: '#f39c12', fontSize: '1.2rem', fontWeight: 'bold', textDecoration: 'none', display: 'block', marginBottom: '8px' }}>
+                📞 0424-2882861
+              </a>
+              <a href="https://wa.me/584242882861?text=Hola!%20Quiero%20realizar%20un%20pedido" target="_blank" rel="noreferrer" style={{ color: '#2ecc71', fontSize: '0.9rem', textDecoration: 'none' }}>
+                💬 Abrir WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <h4 style={{ color: '#fff', margin: '20px 0 15px 0' }}>Síguenos en nuestras redes</h4>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '25px', flexWrap: 'wrap' }}>
+            <a href="https://www.instagram.com/bushisaiteki" target="_blank" rel="noreferrer" style={{ color: '#e1306c', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+              📸 @bushisaiteki (Instagram)
+            </a>
+            <a href="https://www.tiktok.com/@bushi.saiteki" target="_blank" rel="noreferrer" style={{ color: '#25a4e2', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+              🎵 @bushi.saiteki (TikTok)
+            </a>
+          </div>
+        </div>
+
       </div>
     </main>
   );
