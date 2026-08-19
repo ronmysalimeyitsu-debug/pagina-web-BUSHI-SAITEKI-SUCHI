@@ -73,74 +73,115 @@ export default function Home() {
   ];
 
   return (
-    <main style={{ backgroundColor: '#0f0f0f', color: '#f5f5f5', minHeight: '100vh', fontFamily: 'sans-serif' }}>
+    <main style={{ 
+      backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.88)), url('/images/fondo-foodtruck.jpg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
+      color: '#f5f5f5', 
+      minHeight: '100vh', 
+      fontFamily: 'sans-serif' 
+    }}>
       
-      {/* Guirnalda de luces colgantes (Inspirado en el ambiente nocturno del trailer) */}
-      <div style={{ backgroundColor: '#141414', padding: '12px 0', borderBottom: '1px solid #222', textAlign: 'center' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px' }}>
-          {[...Array(9)].map((_, i) => (
+      {/* Guirnalda de luces vintage */}
+      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '12px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '35px' }}>
+          {[...Array(10)].map((_, i) => (
             <div key={i} style={{
-              width: '14px',
-              height: '14px',
+              width: '12px',
+              height: '12px',
               backgroundColor: '#ffeb3b',
               borderRadius: '50%',
-              boxShadow: '0 0 15px #ffeb3b, 0 0 30px #ffc107, 0 0 45px #ff9800'
+              boxShadow: '0 0 15px #ffeb3b, 0 0 25px #ffc107, 0 0 35px #ff9800'
             }}></div>
           ))}
         </div>
       </div>
 
-      {/* Encabezado Principal / Estilo Banner Gourmet */}
+      {/* Header Principal */}
       <header style={{ 
-        backgroundColor: '#111111', 
+        backgroundColor: 'rgba(15, 15, 15, 0.85)', 
+        backdropFilter: 'blur(8px)',
         color: 'white', 
-        padding: '35px 20px', 
+        padding: '30px 20px', 
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center',
         flexWrap: 'wrap',
         gap: '25px',
-        borderBottom: '3px solid #d4af37'
+        borderBottom: '2px solid #d4af37'
       }}>
         <img 
           src="/images/logo-bushi.jpg" 
           alt="Bushi Saiteki Logo" 
-          style={{ width: '130px', height: '130px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #d4af37', boxShadow: '0 0 20px rgba(212, 175, 55, 0.4)' }} 
+          style={{ 
+            width: '120px', 
+            height: '120px', 
+            borderRadius: '50%', 
+            objectFit: 'cover', 
+            border: '3px solid #d4af37', 
+            boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)' 
+          }} 
         />
         <div style={{ textAlign: 'center' }}>
-          <h1 style={{ margin: 0, fontSize: '2.8rem', letterSpacing: '3px', color: '#f39c12', fontFamily: 'serif' }}>BUSHI SAITEKI</h1>
-          <p style={{ margin: '8px 0 0 0', color: '#ccc', fontSize: '1.2rem', fontStyle: 'italic' }}>Sushi & Street Gourmet Trailer Experience</p>
+          <h1 style={{ margin: 0, fontSize: '2.6rem', letterSpacing: '3px', color: '#f39c12', fontFamily: 'serif' }}>
+            BUSHI SAITEKI
+          </h1>
+          <p style={{ margin: '8px 0 0 0', color: '#ddd', fontSize: '1.1rem', fontStyle: 'italic' }}>
+            Auténtico Sushi de Autor & Street Food Trailer
+          </p>
         </div>
       </header>
 
-      {/* Sección del Menú Completo */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '50px 20px' }}>
-        <h2 style={{ textAlign: 'center', fontSize: '2.2rem', marginBottom: '50px', borderBottom: '2px solid #222', paddingBottom: '20px', color: '#f39c12', letterSpacing: '1px' }}>
-          MENÚ COMPLETO: COLECCIÓN RECREADA
+      {/* Contenido del Menú */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
+        <h2 style={{ 
+          textAlign: 'center', 
+          fontSize: '2.2rem', 
+          marginBottom: '40px', 
+          borderBottom: '2px solid rgba(243, 156, 18, 0.5)', 
+          paddingBottom: '15px', 
+          color: '#f39c12', 
+          letterSpacing: '2px',
+          textTransform: 'uppercase'
+        }}>
+          Menú Digital
         </h2>
 
         {menuCategories.map((cat, index) => (
-          <div key={index} style={{ marginBottom: '60px' }}>
-            <h3 style={{ fontSize: '1.6rem', color: '#e67e22', borderLeft: '4px solid #e67e22', paddingLeft: '15px', marginBottom: '25px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+          <div key={index} style={{ marginBottom: '50px' }}>
+            <h3 style={{ 
+              fontSize: '1.5rem', 
+              color: '#e67e22', 
+              borderLeft: '4px solid #e67e22', 
+              paddingLeft: '12px', 
+              marginBottom: '20px', 
+              textTransform: 'uppercase', 
+              letterSpacing: '1px' 
+            }}>
               {cat.category}
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
               {cat.items.map((item, idx) => (
                 <div key={idx} style={{ 
-                  backgroundColor: '#181818', 
-                  border: '1px solid #2a2a2a', 
+                  backgroundColor: 'rgba(20, 20, 20, 0.88)', 
+                  backdropFilter: 'blur(6px)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)', 
                   borderRadius: '12px', 
                   overflow: 'hidden', 
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.6)',
-                  transition: 'transform 0.3s ease'
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.7)',
+                  transition: 'transform 0.2s ease'
                 }}>
-                  <img src={item.img} alt={item.name} style={{ width: '100%', height: '210px', objectFit: 'cover' }} />
-                  <div style={{ padding: '22px' }}>
-                    <h4 style={{ margin: '0 0 10px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
-                    <p style={{ color: '#aaa', fontSize: '0.95rem', margin: '0 0 20px 0', lineHeight: '1.6' }}>{item.desc}</p>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #2a2a2a', paddingTop: '15px' }}>
-                      <span style={{ fontWeight: 'bold', fontSize: '1.3rem', color: '#2ecc71' }}>${item.price}</span>
-                      <span style={{ fontSize: '0.85rem', backgroundColor: '#222', padding: '5px 10px', borderRadius: '6px', color: '#f39c12', border: '1px solid #444' }}>Especialidad</span>
+                  <img src={item.img} alt={item.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                  <div style={{ padding: '20px' }}>
+                    <h4 style={{ margin: '0 0 8px 0', fontSize: '1.25rem', color: '#fff' }}>{item.name}</h4>
+                    <p style={{ color: '#bbb', fontSize: '0.9rem', margin: '0 0 18px 0', lineHeight: '1.5' }}>{item.desc}</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '12px' }}>
+                      <span style={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#2ecc71' }}>${item.price}</span>
+                      <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(243, 156, 18, 0.2)', padding: '4px 8px', borderRadius: '4px', color: '#f39c12', border: '1px solid #f39c12' }}>
+                        Recomendado
+                      </span>
                     </div>
                   </div>
                 </div>
