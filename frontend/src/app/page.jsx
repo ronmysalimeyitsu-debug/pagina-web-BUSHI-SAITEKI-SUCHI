@@ -74,19 +74,22 @@ export default function Home() {
 
   return (
     <main style={{ 
-      backgroundImage: "linear-gradient(rgba(12, 12, 15, 0.65), rgba(12, 12, 15, 0.75)), url('/images/fondo-bushi.jpg')",
+      backgroundImage: "linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.45)), url('/images/fondo-bushi.jpg')",
       backgroundSize: 'cover',
-      backgroundPosition: 'center',
+      backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
+      width: '100%',
+      minHeight: '100vh',
+      margin: 0,
+      padding: '0 0 60px 0',
+      boxSizing: 'border-box',
       color: '#f5f5f5', 
-      minHeight: '100vh', 
-      fontFamily: 'sans-serif',
-      paddingBottom: '60px'
+      fontFamily: 'sans-serif' 
     }}>
       
-      {/* Guirnalda de luces estilo faroles */}
-      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '14px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center' }}>
+      {/* Guirnalda de luces vintage a ancho completo */}
+      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '14px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', width: '100%' }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}>
           {[...Array(12)].map((_, i) => (
             <div key={i} style={{
@@ -102,8 +105,8 @@ export default function Home() {
 
       {/* Header Principal con Logo */}
       <header style={{ 
-        backgroundColor: 'rgba(18, 18, 24, 0.82)', 
-        backdropFilter: 'blur(8px)',
+        backgroundColor: 'rgba(15, 15, 20, 0.92)', 
+        backdropFilter: 'blur(10px)',
         color: 'white', 
         padding: '35px 20px', 
         display: 'flex', 
@@ -112,7 +115,9 @@ export default function Home() {
         flexWrap: 'wrap',
         gap: '25px',
         borderBottom: '2px solid #d4af37',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.6)'
+        boxShadow: '0 4px 25px rgba(0,0,0,0.8)',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
         <img 
           src="/images/logo-bushi.jpg" 
@@ -136,8 +141,17 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Menú Digital Interactivo */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
+      {/* Contenedor del Menú Digital */}
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '40px auto', 
+        padding: '35px 25px',
+        backgroundColor: 'rgba(14, 14, 18, 0.95)',
+        borderRadius: '16px',
+        boxShadow: '0 10px 40px rgba(0, 0, 0, 0.9)',
+        border: '1px solid rgba(212, 175, 55, 0.3)',
+        boxSizing: 'border-box'
+      }}>
         <h2 style={{ 
           textAlign: 'center', 
           fontSize: '2.2rem', 
@@ -160,20 +174,18 @@ export default function Home() {
               paddingLeft: '14px', 
               marginBottom: '25px', 
               textTransform: 'uppercase', 
-              letterSpacing: '1px',
-              textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+              letterSpacing: '1px'
             }}>
               {cat.category}
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
               {cat.items.map((item, idx) => (
                 <div key={idx} style={{ 
-                  backgroundColor: 'rgba(20, 20, 28, 0.85)', 
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)', 
+                  backgroundColor: '#1b1b24', 
+                  border: '1px solid rgba(255, 255, 255, 0.1)', 
                   borderRadius: '12px', 
                   overflow: 'hidden', 
-                  boxShadow: '0 8px 25px rgba(0,0,0,0.7)',
+                  boxShadow: '0 8px 20px rgba(0,0,0,0.6)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between'
@@ -184,7 +196,7 @@ export default function Home() {
                       <h4 style={{ margin: '0 0 8px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
                       <p style={{ color: '#bbb', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: '1.5' }}>{item.desc}</p>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '14px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px' }}>
                       <span style={{ fontWeight: 'bold', fontSize: '1.3rem', color: '#2ecc71' }}>${item.price}</span>
                       <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(243, 156, 18, 0.2)', padding: '5px 10px', borderRadius: '5px', color: '#f39c12', border: '1px solid #f39c12' }}>
                         Recomendado
