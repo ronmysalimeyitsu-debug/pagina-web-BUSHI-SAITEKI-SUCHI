@@ -74,7 +74,7 @@ export default function Home() {
 
   return (
     <main style={{ 
-      backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.88)), url('/images/fondo-foodtruck.jpg')",
+      backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.88)), url('/images/fondo-bushi.jpg')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
