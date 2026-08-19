@@ -1,33 +1,27 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import Hero from '../components/Hero'
-import { fetchMenu, getBaseUrl } from '../lib/api'
-import MenuCard from '../components/MenuCard'
-
-export default function Page() {
-  const [menu, setMenu] = useState([])
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    fetchMenu()
-      .then(setMenu)
-      .catch((e) => setError(e.message))
-  }, [])
-
+export default function Home() {
   return (
-    <main className="p-6">
-      <Hero />
-
-      <section className="mt-6">
-        <h2 className="text-2xl font-bold mb-4">Menú</h2>
-        {error && <div className="text-red-600">Error: {error}</div>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {menu.map((item) => (
-            <MenuCard key={item.id} item={item} />
-          ))}
+    <div>
+      {/* Pega tu nuevo header justo aquí */}
+      <header style={{ 
+        backgroundColor: 'black', 
+        color: 'white', 
+        padding: '20px', 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: '20px' 
+      }}>
+        <img 
+          src="/images/logo-bushi.jpg" 
+          alt="Bushi Saiteki Logo" 
+          style={{ width: '100px', height: '100px', borderRadius: '50%' }} 
+        />
+        <div>
+          <h1 style={{ margin: 0 }}>Bushi Saiteki Suchi</h1>
+          <p style={{ margin: 0 }}>Bienvenidos a nuestra maqueta.</p>
         </div>
-        <div className="mt-4 text-sm text-gray-500">API base: {getBaseUrl()}</div>
-      </section>
-    </main>
+      </header>
+
+      {/* El resto de tu menú y componentes continúan abajo */}
+    </div>
   )
 }
