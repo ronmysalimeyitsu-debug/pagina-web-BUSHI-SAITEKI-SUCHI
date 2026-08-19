@@ -74,16 +74,19 @@ export default function Home() {
 
   return (
     <main style={{ 
-      backgroundColor: '#0c0c0e', 
-      backgroundImage: 'radial-gradient(circle at top, #1a1a24 0%, #0c0c0e 70%)',
+      backgroundImage: "linear-gradient(rgba(12, 12, 15, 0.65), rgba(12, 12, 15, 0.75)), url('/images/fondo-bushi.jpg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
       color: '#f5f5f5', 
       minHeight: '100vh', 
       fontFamily: 'sans-serif',
       paddingBottom: '60px'
     }}>
       
-      {/* Guirnalda de luces vintage iluminadas */}
-      <div style={{ backgroundColor: '#111115', padding: '14px 0', borderBottom: '1px solid #22222a', textAlign: 'center' }}>
+      {/* Guirnalda de luces estilo faroles */}
+      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '14px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}>
           {[...Array(12)].map((_, i) => (
             <div key={i} style={{
@@ -99,7 +102,8 @@ export default function Home() {
 
       {/* Header Principal con Logo */}
       <header style={{ 
-        backgroundColor: '#13131a', 
+        backgroundColor: 'rgba(18, 18, 24, 0.82)', 
+        backdropFilter: 'blur(8px)',
         color: 'white', 
         padding: '35px 20px', 
         display: 'flex', 
@@ -108,7 +112,7 @@ export default function Home() {
         flexWrap: 'wrap',
         gap: '25px',
         borderBottom: '2px solid #d4af37',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
+        boxShadow: '0 4px 20px rgba(0,0,0,0.6)'
       }}>
         <img 
           src="/images/logo-bushi.jpg" 
@@ -119,26 +123,26 @@ export default function Home() {
             borderRadius: '50%', 
             objectFit: 'cover', 
             border: '3px solid #d4af37', 
-            boxShadow: '0 0 20px rgba(212, 175, 55, 0.4)' 
+            boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)' 
           }} 
         />
         <div style={{ textAlign: 'center' }}>
           <h1 style={{ margin: 0, fontSize: '2.8rem', letterSpacing: '3px', color: '#f39c12', fontFamily: 'serif' }}>
             BUSHI SAITEKI
           </h1>
-          <p style={{ margin: '8px 0 0 0', color: '#ccc', fontSize: '1.1rem', fontStyle: 'italic' }}>
+          <p style={{ margin: '8px 0 0 0', color: '#ddd', fontSize: '1.1rem', fontStyle: 'italic' }}>
             Auténtico Sushi de Autor & Street Food Trailer
           </p>
         </div>
       </header>
 
-      {/* Contenido del Menú Completo */}
+      {/* Menú Digital Interactivo */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px' }}>
         <h2 style={{ 
           textAlign: 'center', 
           fontSize: '2.2rem', 
           marginBottom: '45px', 
-          borderBottom: '2px solid #2a2a35', 
+          borderBottom: '2px solid rgba(243, 156, 18, 0.4)', 
           paddingBottom: '15px', 
           color: '#f39c12', 
           letterSpacing: '2px',
@@ -156,18 +160,20 @@ export default function Home() {
               paddingLeft: '14px', 
               marginBottom: '25px', 
               textTransform: 'uppercase', 
-              letterSpacing: '1px' 
+              letterSpacing: '1px',
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)'
             }}>
               {cat.category}
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
               {cat.items.map((item, idx) => (
                 <div key={idx} style={{ 
-                  backgroundColor: '#181822', 
-                  border: '1px solid #282835', 
+                  backgroundColor: 'rgba(20, 20, 28, 0.85)', 
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)', 
                   borderRadius: '12px', 
                   overflow: 'hidden', 
-                  boxShadow: '0 8px 25px rgba(0,0,0,0.6)',
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.7)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between'
@@ -176,11 +182,11 @@ export default function Home() {
                   <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div>
                       <h4 style={{ margin: '0 0 8px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
-                      <p style={{ color: '#aaa', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: '1.5' }}>{item.desc}</p>
+                      <p style={{ color: '#bbb', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: '1.5' }}>{item.desc}</p>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #282835', paddingTop: '14px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '14px' }}>
                       <span style={{ fontWeight: 'bold', fontSize: '1.3rem', color: '#2ecc71' }}>${item.price}</span>
-                      <span style={{ fontSize: '0.8rem', backgroundColor: '#222230', padding: '5px 10px', borderRadius: '5px', color: '#f39c12', border: '1px solid #3a3a4a' }}>
+                      <span style={{ fontSize: '0.8rem', backgroundColor: 'rgba(243, 156, 18, 0.2)', padding: '5px 10px', borderRadius: '5px', color: '#f39c12', border: '1px solid #f39c12' }}>
                         Recomendado
                       </span>
                     </div>
