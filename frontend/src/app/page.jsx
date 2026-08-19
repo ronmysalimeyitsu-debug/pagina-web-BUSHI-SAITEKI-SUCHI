@@ -74,22 +74,24 @@ export default function Home() {
 
   return (
     <main style={{ 
-      backgroundImage: "linear-gradient(rgba(10, 10, 12, 0.35), rgba(10, 10, 12, 0.45)), url('/images/fondo-bushi.jpg')",
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
+      backgroundImage: "linear-gradient(rgba(10, 10, 12, 0.45), rgba(10, 10, 12, 0.65)), url('/images/fondo-bushi.jpg')",
+      /* Zoom a la imagen para sacar la pizarra del encuadre y mostrar solo el tráiler y la gente */
+      backgroundSize: '190% auto',
+      backgroundPosition: '4% center',
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
-      width: '100%',
+      width: '100vw',
       minHeight: '100vh',
       margin: 0,
       padding: '0 0 60px 0',
       boxSizing: 'border-box',
       color: '#f5f5f5', 
-      fontFamily: 'sans-serif' 
+      fontFamily: 'sans-serif',
+      overflowX: 'hidden'
     }}>
       
-      {/* Guirnalda de luces vintage a ancho completo */}
-      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', padding: '14px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', width: '100%' }}>
+      {/* Guirnalda de luces vintage */}
+      <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.65)', padding: '14px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', width: '100%' }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}>
           {[...Array(12)].map((_, i) => (
             <div key={i} style={{
@@ -105,7 +107,7 @@ export default function Home() {
 
       {/* Header Principal con Logo */}
       <header style={{ 
-        backgroundColor: 'rgba(15, 15, 20, 0.92)', 
+        backgroundColor: 'rgba(15, 15, 20, 0.94)', 
         backdropFilter: 'blur(10px)',
         color: 'white', 
         padding: '35px 20px', 
@@ -146,7 +148,8 @@ export default function Home() {
         maxWidth: '1200px', 
         margin: '40px auto', 
         padding: '35px 25px',
-        backgroundColor: 'rgba(14, 14, 18, 0.95)',
+        backgroundColor: 'rgba(14, 14, 18, 0.92)',
+        backdropFilter: 'blur(8px)',
         borderRadius: '16px',
         boxShadow: '0 10px 40px rgba(0, 0, 0, 0.9)',
         border: '1px solid rgba(212, 175, 55, 0.3)',
