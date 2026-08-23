@@ -1,4 +1,4 @@
-// src/app/page.jsx (Fragmento de la sección Menú Digital)
+'use client';
 
 const menuData = {
   aperitivos: [
@@ -103,3 +103,69 @@ const menuData = {
     }
   ]
 };
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 py-10 px-4 sm:px-6 lg:px-8">
+      {/* Header / Historia */}
+      <section className="max-w-5xl mx-auto text-center mb-12 bg-neutral-900/60 p-6 rounded-2xl border border-neutral-800">
+        <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-4">
+          En el Japón feudal, un <strong className="text-amber-500">Bushi (武士)</strong> o guerrero samurái buscaba incansablemente la perfección, la disciplina y el honor en cada movimiento. Para nosotros, <strong className="text-amber-500">Saiteki (最適)</strong> representa el estado óptimo: el equilibrio perfecto y la máxima excelencia alcanzable.
+        </p>
+        <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
+          Al fusionar ambos conceptos creamos el camino del <em>Guerrero Óptimo de la Cocina</em>. Llevamos la rigurosa disciplina del samurái a nuestra barra de sushi y fogones. Cada corte de pescado fresco, la precisión exacta en la temperatura del arroz y la armonía visual de nuestros platos son un tributo a la maestría artesanal japonesa.
+        </p>
+      </section>
+
+      {/* Menú Digital Title */}
+      <header className="max-w-6xl mx-auto text-center mb-10 border-b border-neutral-800 pb-4">
+        <h1 className="text-3xl sm:text-5xl font-black tracking-wider text-amber-500 uppercase">
+          MENÚ DIGITAL
+        </h1>
+      </header>
+
+      <div className="max-w-6xl mx-auto space-y-12">
+        <SectionBlock title="APERITIVOS Y ESPECIALIDADES" items={menuData.aperitivos} />
+        <SectionBlock title="ROLLS ESPECIALES" items={menuData.rollsEspeciales} />
+        <SectionBlock title="HOT ROLLS & TEMPURA" items={menuData.hotRolls} />
+        <SectionBlock title="ROLLS CLÁSICOS & VEGGIE" items={menuData.clasicosYVeggie} />
+        <SectionBlock title="ENSALADAS & SASHIMIS" items={menuData.ensaladasYSashimis} />
+      </div>
+    </main>
+  );
+}
+
+function SectionBlock({ title, items }) {
+  return (
+    <section>
+      <h2 className="text-xl sm:text-2xl font-bold text-amber-500 border-l-4 border-amber-500 pl-3 mb-6 uppercase tracking-wide">
+        {title}
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {items.map((item) => (
+          <article
+            key={item.id}
+            className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all"
+          >
+            <div>
+              <div className="relative w-full h-64 bg-neutral-800">
+                <img
+                  src={item.imagen}
+                  alt={item.nombre}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-5">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-white">{item.nombre}</h3>
+                  <span className="text-amber-400 font-extrabold text-lg">{item.precio}</span>
+                </div>
+                <p className="text-neutral-400 text-sm leading-relaxed">{item.descripcion}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
