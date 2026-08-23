@@ -111,14 +111,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100 font-sans">
+    <main 
+      className="min-h-screen bg-cover bg-center bg-fixed text-neutral-100 font-sans relative"
+      style={{ backgroundImage: "linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), url('/images/fondo-bushi.jpg')" }}
+    >
       {/* HEADER / HERO SECTION */}
-      <header className="relative bg-neutral-900 border-b border-amber-500/30 pt-10 pb-10 px-4 text-center overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-20 bg-cover bg-center" 
-          style={{ backgroundImage: `url('/images/fondo-bushi.jpg')` }}
-        />
-        
+      <header className="relative border-b border-amber-500/30 pt-10 pb-10 px-4 text-center overflow-hidden bg-black/40 backdrop-blur-sm">
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           {/* Logo Circular */}
           <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-amber-400/80 overflow-hidden shadow-2xl mb-4 bg-black">
@@ -179,9 +177,9 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 relative z-10">
         {/* SOBRE NOSOTROS */}
-        <section className="bg-neutral-900/90 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden backdrop-blur-sm">
+        <section className="bg-neutral-950/80 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden backdrop-blur-md">
           <p className="text-amber-500 font-serif text-lg tracking-widest mb-1">
             武士 最適
           </p>
@@ -214,7 +212,7 @@ export default function Home() {
         <SectionBlock title="ENSALADAS & SASHIMIS" items={menuData.ensaladasYSashimis} getWhatsAppLink={getWhatsAppLink} />
 
         {/* HAZ TU PEDIDO DIRECTO - CARD FINAL */}
-        <section className="bg-neutral-900 border border-amber-500/30 rounded-2xl p-8 text-center shadow-2xl max-w-3xl mx-auto">
+        <section className="bg-neutral-950/80 border border-amber-500/30 rounded-2xl p-8 text-center shadow-2xl max-w-3xl mx-auto backdrop-blur-md">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-amber-500 mb-2 font-serif">
             ¡Haz Tu Pedido Directo!
           </h3>
@@ -224,7 +222,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {/* Línea Principal */}
-            <div className="bg-neutral-950/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
+            <div className="bg-black/60 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
               <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
                 LÍNEA PRINCIPAL
               </span>
@@ -242,7 +240,7 @@ export default function Home() {
             </div>
 
             {/* Línea Secundaria */}
-            <div className="bg-neutral-950/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
+            <div className="bg-black/60 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
               <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
                 LÍNEA SECUNDARIA
               </span>
@@ -295,18 +293,18 @@ function SectionBlock({ title, items, getWhatsAppLink }) {
       <h3 className="text-xl sm:text-2xl font-bold text-amber-500 border-l-4 border-amber-500 pl-3 mb-6 uppercase tracking-wide font-serif">
         {title}
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {items.map((item) => (
           <article
             key={item.id}
-            className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all"
+            className="bg-neutral-950/85 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all backdrop-blur-sm"
           >
             <div>
-              <div className="relative w-full h-56 bg-neutral-800">
+              <div className="relative w-full h-64 bg-neutral-900 overflow-hidden">
                 <img
                   src={item.imagen}
                   alt={item.nombre}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
               <div className="p-5">
