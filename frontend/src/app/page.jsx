@@ -112,8 +112,14 @@ export default function Home() {
 
   return (
     <main 
-      className="min-h-screen bg-cover bg-center bg-fixed text-neutral-100 font-sans relative"
-      style={{ backgroundImage: "linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), url('/images/fondo-bushi.jpg')" }}
+      className="min-h-screen text-neutral-100 font-sans relative"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80')`,
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
       {/* HEADER / HERO SECTION */}
       <header className="relative border-b border-amber-500/30 pt-10 pb-10 px-4 text-center overflow-hidden bg-black/40 backdrop-blur-sm">
@@ -169,7 +175,7 @@ export default function Home() {
               href="https://tiktok.com/@bushi.saiteki"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-neutral-900 hover:bg-neutral-800 text-white border border-amber-500/50 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+              className="bg-neutral-900/90 hover:bg-neutral-800 text-white border border-amber-500/50 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
             >
               🎵 TikTok
             </a>
@@ -179,7 +185,7 @@ export default function Home() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 relative z-10">
         {/* SOBRE NOSOTROS */}
-        <section className="bg-neutral-950/80 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden backdrop-blur-md">
+        <section className="bg-black/75 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden backdrop-blur-md">
           <p className="text-amber-500 font-serif text-lg tracking-widest mb-1">
             武士 最適
           </p>
@@ -211,8 +217,8 @@ export default function Home() {
         <SectionBlock title="ROLLS CLÁSICOS & VEGGIE" items={menuData.clasicosYVeggie} getWhatsAppLink={getWhatsAppLink} />
         <SectionBlock title="ENSALADAS & SASHIMIS" items={menuData.ensaladasYSashimis} getWhatsAppLink={getWhatsAppLink} />
 
-        {/* HAZ TU PEDIDO DIRECTO - CARD FINAL */}
-        <section className="bg-neutral-950/80 border border-amber-500/30 rounded-2xl p-8 text-center shadow-2xl max-w-3xl mx-auto backdrop-blur-md">
+        {/* HAZ TU PEDIDO DIRECTO */}
+        <section className="bg-black/75 border border-amber-500/30 rounded-2xl p-8 text-center shadow-2xl max-w-3xl mx-auto backdrop-blur-md">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-amber-500 mb-2 font-serif">
             ¡Haz Tu Pedido Directo!
           </h3>
@@ -221,8 +227,7 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            {/* Línea Principal */}
-            <div className="bg-black/60 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
+            <div className="bg-black/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
               <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
                 LÍNEA PRINCIPAL
               </span>
@@ -239,8 +244,7 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Línea Secundaria */}
-            <div className="bg-black/60 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
+            <div className="bg-black/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
               <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
                 LÍNEA SECUNDARIA
               </span>
@@ -297,7 +301,7 @@ function SectionBlock({ title, items, getWhatsAppLink }) {
         {items.map((item) => (
           <article
             key={item.id}
-            className="bg-neutral-950/85 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all backdrop-blur-sm"
+            className="bg-black/75 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all backdrop-blur-sm"
           >
             <div>
               <div className="relative w-full h-64 bg-neutral-900 overflow-hidden">
