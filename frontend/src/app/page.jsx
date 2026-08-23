@@ -5,14 +5,14 @@ const menuData = {
     {
       id: "bushi-crispy-pizza",
       nombre: "Bushi Crispy Pizza",
-      descripcion: "Base crocante de arroz de sushi cubierta con nuestra mezcla especial de pescados, quesos y especias japonesas, gratinada al horno.",
+      descripcion: "Base crocante de arroz de sushi cubierta con nuestra mezcla especial de pescados, quesos y especias japonesas, gratinada al horno y servida en cuatro porciones.",
       precio: "$11.00",
       imagen: "/images/bushi-crispy-pizza.jpg"
     },
     {
       id: "tekebuchi-saiteki",
       nombre: "Tekebuchi Saiteki",
-      descripcion: "Crujientes bocados de mozzarella rellenos con nuestra exclusiva mezcla gratinada de camarones, dorados a la perfección y acompañados con salsa Fuji y salsa de anguila.",
+      descripcion: "Crujientes bocados de mozzarella rellenos con nuestra exclusiva mezcla, dorados a la perfección y acompañados con salsa Fuji y salsa de anguila.",
       precio: "$6.50",
       imagen: "/images/tekebuchi-saiteki.jpg"
     }
@@ -105,50 +105,204 @@ const menuData = {
 };
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100 py-10 px-4 sm:px-6 lg:px-8">
-      {/* Header / Historia */}
-      <section className="max-w-5xl mx-auto text-center mb-12 bg-neutral-900/60 p-6 rounded-2xl border border-neutral-800">
-        <p className="text-neutral-300 text-sm sm:text-base leading-relaxed mb-4">
-          En el Japón feudal, un <strong className="text-amber-500">Bushi (武士)</strong> o guerrero samurái buscaba incansablemente la perfección, la disciplina y el honor en cada movimiento. Para nosotros, <strong className="text-amber-500">Saiteki (最適)</strong> representa el estado óptimo: el equilibrio perfecto y la máxima excelencia alcanzable.
-        </p>
-        <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed">
-          Al fusionar ambos conceptos creamos el camino del <em>Guerrero Óptimo de la Cocina</em>. Llevamos la rigurosa disciplina del samurái a nuestra barra de sushi y fogones. Cada corte de pescado fresco, la precisión exacta en la temperatura del arroz y la armonía visual de nuestros platos son un tributo a la maestría artesanal japonesa.
-        </p>
-      </section>
+  const getWhatsAppLink = (dishName) => {
+    const message = encodeURIComponent(`¡Hola! Me gustaría pedir el plato: ${dishName}`);
+    return `https://wa.me/584142044493?text=${message}`;
+  };
 
-      {/* Menú Digital Title */}
-      <header className="max-w-6xl mx-auto text-center mb-10 border-b border-neutral-800 pb-4">
-        <h1 className="text-3xl sm:text-5xl font-black tracking-wider text-amber-500 uppercase">
-          MENÚ DIGITAL
-        </h1>
+  return (
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 font-sans">
+      {/* HEADER / HERO SECTION */}
+      <header className="relative bg-neutral-900 border-b border-amber-500/30 pt-10 pb-10 px-4 text-center overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-20 bg-cover bg-center" 
+          style={{ backgroundImage: `url('/images/fondo-bushi.jpg')` }}
+        />
+        
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+          {/* Logo Circular */}
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-amber-400/80 overflow-hidden shadow-2xl mb-4 bg-black">
+            <img 
+              src="/images/logo-bushi.jpg" 
+              alt="Bushi Saiteki Logo" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <p className="text-amber-500 font-serif text-lg tracking-widest mb-1">
+            武士 最適
+          </p>
+
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-wider text-amber-400 font-serif uppercase mb-2">
+            BUSHI SAITEKI
+          </h1>
+
+          <p className="text-neutral-300 italic text-sm sm:text-base font-light mb-6">
+            Auténtico Sushi de Autor & Street Food Trailer
+          </p>
+
+          {/* Botones de Redes y Pedidos */}
+          <div className="flex flex-wrap justify-center items-center gap-3">
+            <a
+              href="https://wa.me/584142044493"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            >
+              💬 Pedir WhatsApp 1
+            </a>
+            <a
+              href="https://wa.me/584242882861"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            >
+              💬 Pedir WhatsApp 2
+            </a>
+            <a
+              href="https://instagram.com/bushisaiteki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 via-pink-500 to-amber-500 hover:opacity-90 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            >
+              📷 Instagram
+            </a>
+            <a
+              href="https://tiktok.com/@bushi.saiteki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-neutral-900 hover:bg-neutral-800 text-white border border-amber-500/50 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            >
+              🎵 TikTok
+            </a>
+          </div>
+        </div>
       </header>
 
-      <div className="max-w-6xl mx-auto space-y-12">
-        <SectionBlock title="APERITIVOS Y ESPECIALIDADES" items={menuData.aperitivos} />
-        <SectionBlock title="ROLLS ESPECIALES" items={menuData.rollsEspeciales} />
-        <SectionBlock title="HOT ROLLS & TEMPURA" items={menuData.hotRolls} />
-        <SectionBlock title="ROLLS CLÁSICOS & VEGGIE" items={menuData.clasicosYVeggie} />
-        <SectionBlock title="ENSALADAS & SASHIMIS" items={menuData.ensaladasYSashimis} />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+        {/* SOBRE NOSOTROS */}
+        <section className="bg-neutral-900/90 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden backdrop-blur-sm">
+          <p className="text-amber-500 font-serif text-lg tracking-widest mb-1">
+            武士 最適
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white mb-6">
+            Sobre Nosotros: La Filosofía Bushi Saiteki
+          </h2>
+          
+          <div className="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed max-w-4xl mx-auto">
+            <p>
+              En el Japón feudal, un <strong className="text-white font-semibold">Bushi (武士)</strong> o guerrero samurái buscaba incansablemente la perfección, la disciplina y el honor en cada movimiento. Para nosotros, <strong className="text-white font-semibold">Saiteki (最適)</strong> representa el estado óptimo: el equilibrio perfecto y la máxima excelencia alcanzable.
+            </p>
+            <p>
+              Al fusionar ambos conceptos creamos el camino del <em>Guerrero Óptimo de la Cocina</em>. Llevamos la rigurosa disciplina del samurái a nuestra barra de sushi y fogones. Cada corte de pescado fresco, la precisión exacta en la temperatura del arroz y la armonía visual de nuestros platos son un tributo a la maestría artesanal japonesa.
+            </p>
+          </div>
+        </section>
+
+        {/* MENÚ DIGITAL TITLE */}
+        <header className="text-center pt-4 border-b border-amber-500/20 pb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-wider text-amber-500 uppercase font-serif">
+            MENÚ DIGITAL
+          </h2>
+        </header>
+
+        {/* SECCIONES DEL MENÚ */}
+        <SectionBlock title="APERITIVOS Y ESPECIALIDADES" items={menuData.aperitivos} getWhatsAppLink={getWhatsAppLink} />
+        <SectionBlock title="ROLLS ESPECIALES" items={menuData.rollsEspeciales} getWhatsAppLink={getWhatsAppLink} />
+        <SectionBlock title="HOT ROLLS & TEMPURA" items={menuData.hotRolls} getWhatsAppLink={getWhatsAppLink} />
+        <SectionBlock title="ROLLS CLÁSICOS & VEGGIE" items={menuData.clasicosYVeggie} getWhatsAppLink={getWhatsAppLink} />
+        <SectionBlock title="ENSALADAS & SASHIMIS" items={menuData.ensaladasYSashimis} getWhatsAppLink={getWhatsAppLink} />
+
+        {/* HAZ TU PEDIDO DIRECTO - CARD FINAL */}
+        <section className="bg-neutral-900 border border-amber-500/30 rounded-2xl p-8 text-center shadow-2xl max-w-3xl mx-auto">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-amber-500 mb-2 font-serif">
+            ¡Haz Tu Pedido Directo!
+          </h3>
+          <p className="text-neutral-300 text-sm mb-6">
+            Atención rápida por WhatsApp o llamadas telefónicas:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {/* Línea Principal */}
+            <div className="bg-neutral-950/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
+              <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
+                LÍNEA PRINCIPAL
+              </span>
+              <a href="tel:04142044493" className="text-amber-400 font-bold text-lg hover:underline mb-2 flex items-center gap-2">
+                📞 0414-2044493
+              </a>
+              <a
+                href="https://wa.me/584142044493"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 text-xs font-semibold hover:underline flex items-center gap-1"
+              >
+                💬 Abrir WhatsApp
+              </a>
+            </div>
+
+            {/* Línea Secundaria */}
+            <div className="bg-neutral-950/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
+              <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
+                LÍNEA SECUNDARIA
+              </span>
+              <a href="tel:04242882861" className="text-amber-400 font-bold text-lg hover:underline mb-2 flex items-center gap-2">
+                📞 0424-2882861
+              </a>
+              <a
+                href="https://wa.me/584242882861"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 text-xs font-semibold hover:underline flex items-center gap-1"
+              >
+                💬 Abrir WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div className="border-t border-neutral-800 pt-6">
+            <p className="text-xs text-neutral-400 mb-3 uppercase tracking-wider">
+              Síguenos en nuestras redes
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4 text-sm">
+              <a
+                href="https://instagram.com/bushisaiteki"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1 font-medium"
+              >
+                📷 @bushisaiteki (Instagram)
+              </a>
+              <a
+                href="https://tiktok.com/@bushi.saiteki"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 font-medium"
+              >
+                🎵 @bushi.saiteki (TikTok)
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
 }
 
-function SectionBlock({ title, items }) {
+function SectionBlock({ title, items, getWhatsAppLink }) {
   return (
     <section>
-      <h2 className="text-xl sm:text-2xl font-bold text-amber-500 border-l-4 border-amber-500 pl-3 mb-6 uppercase tracking-wide">
+      <h3 className="text-xl sm:text-2xl font-bold text-amber-500 border-l-4 border-amber-500 pl-3 mb-6 uppercase tracking-wide font-serif">
         {title}
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((item) => (
           <article
             key={item.id}
             className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all"
           >
             <div>
-              <div className="relative w-full h-64 bg-neutral-800">
+              <div className="relative w-full h-56 bg-neutral-800">
                 <img
                   src={item.imagen}
                   alt={item.nombre}
@@ -156,12 +310,21 @@ function SectionBlock({ title, items }) {
                 />
               </div>
               <div className="p-5">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-white">{item.nombre}</h3>
-                  <span className="text-amber-400 font-extrabold text-lg">{item.precio}</span>
-                </div>
-                <p className="text-neutral-400 text-sm leading-relaxed">{item.descripcion}</p>
+                <h4 className="text-xl font-bold text-white mb-2">{item.nombre}</h4>
+                <p className="text-neutral-400 text-sm leading-relaxed mb-4">{item.descripcion}</p>
               </div>
+            </div>
+
+            <div className="p-5 pt-0 flex justify-between items-center mt-auto border-t border-neutral-800/60">
+              <span className="text-emerald-400 font-extrabold text-xl">{item.precio}</span>
+              <a
+                href={getWhatsAppLink(item.nombre)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-emerald-950/80 hover:bg-emerald-900 text-emerald-400 border border-emerald-600/60 text-xs font-semibold px-3 py-2 rounded-lg transition-all flex items-center gap-1.5"
+              >
+                Pedir este plato
+              </a>
             </div>
           </article>
         ))}
