@@ -406,17 +406,16 @@ export default function Home() {
                     justify: 'space-between'
                   }}>
                     {/* Imagen ajustada con objectFit contain y fondo oscuro para ver la foto entera */}
-                    <img 
-                      src={item.img} 
-                      alt={item.name} 
-                      style={{ 
-                        width: '100%', 
-                        height: '210px', 
-                        objectFit: 'contain', 
-                        backgroundColor: '#0c0c10',
-                        padding: '6px'
-                      }} 
-                    />
+                   <img 
+  src={item.img} 
+  alt={item.name} 
+  style={{ 
+    width: '100%', 
+    aspectRatio: '4/3', 
+    objectFit: 'cover', 
+    objectPosition: 'center'
+  }} 
+/> 
                     <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                       <div>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
