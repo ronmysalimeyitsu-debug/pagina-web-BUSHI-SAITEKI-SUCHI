@@ -1,336 +1,469 @@
 'use client';
 
-const menuData = {
-  aperitivos: [
-    {
-      id: "bushi-crispy-pizza",
-      nombre: "Bushi Crispy Pizza",
-      descripcion: "Base crocante de arroz de sushi cubierta con nuestra mezcla especial de pescados, quesos y especias japonesas, gratinada al horno y servida en cuatro porciones.",
-      precio: "$11.00",
-      imagen: "/images/bushi-crispy-pizza.jpg"
-    },
-    {
-      id: "tekebuchi-saiteki",
-      nombre: "Tekebuchi Saiteki",
-      descripcion: "Crujientes bocados de mozzarella rellenos con nuestra exclusiva mezcla, dorados a la perfección y acompañados con salsa Fuji y salsa de anguila.",
-      precio: "$6.50",
-      imagen: "/images/tekebuchi-saiteki.jpg"
-    }
-  ],
-  rollsEspeciales: [
-    {
-      id: "kaminari-roll",
-      nombre: "Kaminari Roll",
-      descripcion: "Queso crema, jalapeño y camarones crocantes, coronado con quinoa frita, queso parmesano y spicy mayo flameada.",
-      precio: "$12.00",
-      imagen: "/images/kaminari-roll.jpg"
-    },
-    {
-      id: "platano-roll",
-      nombre: "Plátano Roll",
-      descripcion: "Salmón crocante, kani crocante, queso crema y aguacate, envuelto en plátano maduro con tartar Vulcano y salsa de anguila.",
-      precio: "$13.00",
-      imagen: "/images/platano-roll.jpg"
-    },
-    {
-      id: "maguro-gratinado",
-      nombre: "Maguro Gratinado",
-      descripcion: "Atún fresco y queso crema, cubierto con topping gratinado de la casa flameado al momento.",
-      precio: "$13.50",
-      imagen: "/images/maguro-gratinado.jpg"
-    },
-    {
-      id: "fuji-roll",
-      nombre: "Fuji Roll",
-      descripcion: "Rollo de autor cubierto con topping cremoso Fuji flameado y especias asiáticas.",
-      precio: "$12.00",
-      imagen: "/images/fuji-roll.jpg"
-    }
-  ],
-  hotRolls: [
-    {
-      id: "tiger-roll",
-      nombre: "Tiger Roll",
-      descripcion: "Rollo crocante relleno con queso crema, cebollín y salmón fresco, servido con ensalada dinamita y salsa de anguila.",
-      precio: "$12.00",
-      imagen: "/images/tiger-roll.jpg"
-    },
-    {
-      id: "tropical-fry-roll",
-      nombre: "Tropical Fry Roll",
-      descripcion: "Rollo tempurizado con notas frutales, topping gratinado y reducción de maracuyá.",
-      precio: "$12.50",
-      imagen: "/images/tropical-fry-roll.jpg"
-    }
-  ],
-  clasicosYVeggie: [
-    {
-      id: "alaska-roll",
-      nombre: "Alaska Roll",
-      descripcion: "Clásico uramaki relleno con salmón fresco, queso crema y aguacate, rebozado en ajonjolí tostado.",
-      precio: "$9.50",
-      imagen: "/images/alaska-roll.jpg"
-    },
-    {
-      id: "zen-roll",
-      nombre: "Zen Roll",
-      descripcion: "Uramaki relleno con zanahoria kimpa, pepino, aguacate y cebollín. Coronado con tajín y polvo de cotufa.",
-      precio: "$8.50",
-      imagen: "/images/zen-roll.jpg"
-    }
-  ],
-  ensaladasYSashimis: [
-    {
-      id: "saiteki-ocean",
-      nombre: "Saiteki Ocean",
-      descripcion: "Fresca ensalada de wakame y cangrejo desmenuzado en ponzu y spicy mayo, coronada con salmón al grill y sashimi de atún sellado.",
-      precio: "$14.00",
-      imagen: "/images/saiteki-ocean.jpg"
-    },
-    {
-      id: "sashimi-atun",
-      nombre: "Sashimi de Atún",
-      descripcion: "Cortes frescos de atún rojo servidos sobre una fina cama de julianas de pepino y repollo blanco.",
-      precio: "$10.00",
-      imagen: "/images/sashimi-atun.jpg"
-    },
-    {
-      id: "sashimi-salmon",
-      nombre: "Sashimi de Salmón",
-      descripcion: "Láminas seleccionadas de salmón fresco de corte fino.",
-      precio: "$11.00",
-      imagen: "/images/sashimi-de-salmon.jpg"
-    }
-  ]
-};
-
 export default function Home() {
-  const getWhatsAppLink = (dishName) => {
-    const message = encodeURIComponent(`¡Hola! Me gustaría pedir el plato: ${dishName}`);
-    return `https://wa.me/584142044493?text=${message}`;
-  };
+  const menuCategories = [
+    {
+      category: "Aperitivos (Appetizers)",
+      items: [
+        {
+          name: "Saiteki Ocean",
+          desc: "Fresca ensalada de wakame y cangrejo desmenuzado, bañada en ponzu y spicy mayo. Coronada con cortes de salmón al grill y sashimi de atún sellado.",
+          price: "6.00",
+          img: "/images/saiteki-ocean.jpg"
+        },
+        {
+          name: "Tekebuchi Saiteki",
+          desc: "Crujientes bocados de mozzarella rellenos con nuestra exclusiva mezcla gratinada de camarones y especias de inspiración japonesa. Dorados a la perfección y acompañados con salsa Fuji y salsa de anguila.",
+          price: "6.00",
+          img: "/images/tekebuchi-saiteki.jpg"
+        },
+        {
+          name: "Sashimi de Salmón",
+          desc: "Cuatro piezas de salmón fresco cuidadosamente seleccionadas, cortadas al estilo tradicional japonés para resaltar su textura suave y su delicado sabor.",
+          price: "6.00",
+          img: "/images/sashimi-de-salmon.jpg"
+        },
+        {
+          name: "Sashimi de Atún",
+          desc: "Cuatro piezas de atún fresco cuidadosamente seleccionadas, cortadas al estilo tradicional japonés para disfrutar su sabor limpio y delicado.",
+          price: "6.00",
+          img: "/images/sashimi-atun.jpg"
+        }
+      ]
+    },
+    {
+      category: "Rollos Tempurizados",
+      items: [
+        {
+          name: "Tiger Roll",
+          desc: "Rollo crocante relleno con queso crema, cebollín y salmón fresco, coronado con nuestra ensalada dinamita y salsa de anguila.",
+          price: "6.00",
+          img: "/images/tiger-roll.jpg"
+        },
+        {
+          name: "Fuji Roll Tempurizado",
+          desc: "Delicioso rollo tempurizado envuelto en nuestra cobertura crocante de cereal, relleno con queso crema, aguacate, cebollín y camarones. Coronado con camarones crocantes, salsa Fuji y salsa de anguila.",
+          price: "6.00",
+          img: "/images/fuji-roll-tempurizado.jpg"
+        },
+        {
+          name: "Tropical Fry Roll",
+          desc: "Rollo tempurizado relleno de salmón, queso crema, parchita y piña al grill, envuelto en coco rallado y frito hasta lograr una textura crocante. Coronado con reducción tropical de parchita y mango.",
+          price: "6.00",
+          img: "/images/tropical-fry-roll.jpg"
+        }
+      ]
+    },
+    {
+      category: "Opción Veggie",
+      items: [
+        {
+          name: "Zen Roll",
+          desc: "Uramaki relleno con zanahoria kimpa, pepino, aguacate y cebollín. Coronado con tajín y nuestro toque especial de polvo de cotufa.",
+          price: "5.00",
+          img: "/images/zen-roll.jpg"
+        }
+      ]
+    },
+    {
+      category: "Rollos Fríos",
+      items: [
+        {
+          name: "Alaska Roll",
+          desc: "Clásico uramaki relleno con salmón fresco, queso crema y aguacate. Finalizado con semillas de ajonjolí.",
+          price: "5.00",
+          img: "/images/alaska-roll.jpg"
+        },
+        {
+          name: "California Roll",
+          desc: "Clásico uramaki relleno con pepino, aguacate y cangrejo. Finalizado con masago, semillas de ajonjolí y coronado con kani desmenuzado crocante.",
+          price: "5.00",
+          img: "/images/california-roll.jpg"
+        },
+        {
+          name: "Fuji Roll Frío",
+          desc: "Uramaki relleno con queso crema, aguacate, cebollín y camarones. Coronado con camarones crocantes y finalizado con nuestra salsa Fuji y salsa de anguila.",
+          price: "6.00",
+          img: "/images/fuji-roll.jpg"
+        }
+      ]
+    },
+    {
+      category: "Rollos Especiales",
+      items: [
+        {
+          name: "Acevichado Roll",
+          desc: "Exclusivo roll de la casa relleno con pescado tempurizado, queso crema y kani, con topping de aguacate fresco. Bañado con nuestra salsa acevichada y acompañado de puntos de pasta de ají amarillo.",
+          price: "7.50",
+          img: "/images/acevichado-roll.jpg"
+        },
+        {
+          name: "Bushido Roll",
+          desc: "Uramaki relleno con queso crema, cebolla encurtida artesanalmente y camarón crocante. Coronado con aguacate y kani desmenuzado, finalizado con nuestra ensalada especial de kani, wakame y salsa Bushi.",
+          price: "7.00",
+          img: "/images/bushido-roll.jpg"
+        },
+        {
+          name: "Ronin Roll",
+          desc: "Uramaki relleno con atún tataki, queso crema ponzu y aguacate, con topping de cebollín finamente picado. Coronado con tartar cremoso de atún en nuestra selección especial de salsas picantes y semillas de ajonjolí.",
+          price: "8.00",
+          img: "/images/ronin-roll.jpg"
+        },
+        {
+          name: "Kaminari Roll",
+          desc: "Una combinación explosiva de queso crema, jalapeño y camarones crocantes, coronada con quinoa frita, queso parmesano flameado y spicy mayo flameada.",
+          price: "8.00",
+          img: "/images/kaminari-roll.jpg"
+        },
+        {
+          name: "Plátano Roll",
+          desc: "Exclusivo roll de la casa relleno con salmón crocante, kani crocante, queso crema y aguacate, envuelto en finas tajadas de plátano maduro. Coronado con nuestro tartar Vulcano y finalizado con salsa de anguila. Roll sin arroz.",
+          price: "8.00",
+          img: "/images/platano-roll.jpg"
+        },
+        {
+          name: "Bushi Pizza Roll",
+          desc: "Uramaki relleno de tocineta crocante, queso crema y camarón cubierto con cereal crujiente. Coronado con nuestra cremosa pasta sabor pizza, gratinada al horno y finalizado con nuestra salsa especial de pizza.",
+          price: "8.50",
+          img: "/images/bushi-pizza-roll.jpg"
+        }
+      ]
+    }
+  ];
 
   return (
-    <main 
-      className="min-h-screen text-neutral-100 font-sans relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80')`,
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
+    <>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;900&display=swap" />
+
+      <main style={{ 
+        backgroundImage: "linear-gradient(rgba(10, 10, 12, 0.5), rgba(10, 10, 12, 0.7)), url('/images/fondo-pagina-bushi.jpg')",
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* HEADER / HERO SECTION */}
-      <header className="relative border-b border-amber-500/30 pt-10 pb-10 px-4 text-center overflow-hidden bg-black/40 backdrop-blur-sm">
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          {/* Logo Circular */}
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-amber-400/80 overflow-hidden shadow-2xl mb-4 bg-black">
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        width: '100%',
+        minHeight: '100vh',
+        margin: 0,
+        padding: '0 0 60px 0',
+        boxSizing: 'border-box',
+        color: '#f5f5f5', 
+        fontFamily: 'sans-serif'
+      }}>
+        
+        {/* Guirnalda de luces vintage */}
+        <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.55)', padding: '14px 0', borderBottom: '1px solid rgba(212, 175, 55, 0.2)', textAlign: 'center', width: '100%' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}>
+            {[...Array(12)].map((_, i) => (
+              <div key={i} style={{
+                width: '12px',
+                height: '12px',
+                backgroundColor: '#ffcc00',
+                borderRadius: '50%',
+                boxShadow: '0 0 12px #ffcc00, 0 0 22px #ffa500'
+              }}></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Header Principal con Logo y Kanji */}
+        <header style={{ 
+          backgroundColor: 'rgba(12, 12, 16, 0.92)', 
+          backdropFilter: 'blur(12px)',
+          color: 'white', 
+          padding: '30px 20px', 
+          display: 'flex', 
+          flexDirection: 'column',
+          alignItems: 'center', 
+          justifyContent: 'center',
+          gap: '20px',
+          borderBottom: '2px solid #d4af37',
+          boxShadow: '0 6px 30px rgba(0,0,0,0.85)',
+          width: '100%',
+          boxSizing: 'border-box'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '22px', flexWrap: 'wrap' }}>
             <img 
               src="/images/logo-bushi.jpg" 
               alt="Bushi Saiteki Logo" 
-              className="w-full h-full object-cover"
+              style={{ 
+                width: '115px', 
+                height: '115px', 
+                borderRadius: '50%', 
+                objectFit: 'cover', 
+                border: '3px solid #d4af37', 
+                boxShadow: '0 0 22px rgba(212, 175, 55, 0.6)' 
+              }} 
             />
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: "'Noto Serif JP', serif", color: '#d4af37', fontSize: '1.2rem', letterSpacing: '6px', marginBottom: '2px' }}>
+                武士最適
+              </div>
+              <h1 style={{ margin: 0, fontSize: '2.8rem', letterSpacing: '3px', color: '#f39c12', fontFamily: 'serif' }}>
+                BUSHI SAITEKI
+              </h1>
+              <p style={{ margin: '6px 0 0 0', color: '#ddd', fontSize: '1.05rem', fontStyle: 'italic' }}>
+                Auténtico Sushi de Autor & Street Food Trailer
+              </p>
+            </div>
           </div>
 
-          <p className="text-amber-500 font-serif text-lg tracking-widest mb-1">
-            武士 最適
-          </p>
-
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-wider text-amber-400 font-serif uppercase mb-2">
-            BUSHI SAITEKI
-          </h1>
-
-          <p className="text-neutral-300 italic text-sm sm:text-base font-light mb-6">
-            Auténtico Sushi de Autor & Street Food Trailer
-          </p>
-
-          {/* Botones de Redes y Pedidos */}
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            <a
-              href="https://wa.me/584142044493"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+          {/* Botones de Contacto y Redes */}
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '8px' }}>
+            <a 
+              href="https://wa.me/584142044493?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Bushi%20Saiteki" 
+              target="_blank" 
+              rel="noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                color: 'white',
+                padding: '9px 18px',
+                borderRadius: '25px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 15px rgba(37, 211, 102, 0.35)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}
             >
               💬 Pedir WhatsApp 1
             </a>
-            <a
-              href="https://wa.me/584242882861"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            <a 
+              href="https://wa.me/584242882861?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Bushi%20Saiteki" 
+              target="_blank" 
+              rel="noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                color: 'white',
+                padding: '9px 18px',
+                borderRadius: '25px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 15px rgba(37, 211, 102, 0.35)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}
             >
               💬 Pedir WhatsApp 2
             </a>
-            <a
-              href="https://instagram.com/bushisaiteki"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-purple-600 via-pink-500 to-amber-500 hover:opacity-90 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            <a 
+              href="https://www.instagram.com/bushisaiteki" 
+              target="_blank" 
+              rel="noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)',
+                color: 'white',
+                padding: '9px 18px',
+                borderRadius: '25px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 15px rgba(253, 29, 29, 0.35)'
+              }}
             >
-              📷 Instagram
+              📸 Instagram
             </a>
-            <a
-              href="https://tiktok.com/@bushi.saiteki"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-neutral-900/90 hover:bg-neutral-800 text-white border border-amber-500/50 text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+            <a 
+              href="https://www.tiktok.com/@bushi.saiteki" 
+              target="_blank" 
+              rel="noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+                border: '1px solid #d4af37',
+                color: '#f39c12',
+                padding: '9px 18px',
+                borderRadius: '25px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 15px rgba(212, 175, 55, 0.25)'
+              }}
             >
               🎵 TikTok
             </a>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 relative z-10">
-        {/* SOBRE NOSOTROS */}
-        <section className="bg-black/75 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl relative overflow-hidden backdrop-blur-md">
-          <p className="text-amber-500 font-serif text-lg tracking-widest mb-1">
-            武士 最適
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-white mb-6">
-            Sobre Nosotros: La Filosofía Bushi Saiteki
-          </h2>
-          
-          <div className="space-y-4 text-neutral-300 text-sm sm:text-base leading-relaxed max-w-4xl mx-auto">
-            <p>
-              En el Japón feudal, un <strong className="text-white font-semibold">Bushi (武士)</strong> o guerrero samurái buscaba incansablemente la perfección, la disciplina y el honor en cada movimiento. Para nosotros, <strong className="text-white font-semibold">Saiteki (最適)</strong> representa el estado óptimo: el equilibrio perfecto y la máxima excelencia alcanzable.
+        {/* Sección "Sobre Nosotros" */}
+        <section style={{ 
+          maxWidth: '1200px', 
+          margin: '35px auto 0 auto', 
+          padding: '30px 25px',
+          backgroundColor: 'rgba(14, 14, 18, 0.88)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '16px',
+          boxShadow: '0 10px 40px rgba(0, 0, 0, 0.9)',
+          border: '1px solid rgba(212, 175, 55, 0.35)',
+          boxSizing: 'border-box'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+            <span style={{ fontFamily: "'Noto Serif JP', serif", color: '#f39c12', fontSize: '1.6rem', letterSpacing: '4px' }}>
+              武士最適
+            </span>
+            <h2 style={{ 
+              margin: '5px 0 0 0', 
+              fontSize: '2rem', 
+              color: '#fff', 
+              letterSpacing: '2px',
+              fontFamily: 'serif'
+            }}>
+              Sobre Nosotros: La Filosofía Bushi Saiteki
+            </h2>
+            <div style={{ width: '80px', height: '3px', backgroundColor: '#d4af37', margin: '12px auto 0 auto', borderRadius: '2px' }}></div>
+          </div>
+
+          <div style={{ color: '#ddd', lineHeight: '1.7', fontSize: '1.02rem', textAlign: 'justify', maxWidth: '1000px', margin: '0 auto' }}>
+            <p style={{ marginBottom: '15px' }}>
+              En el Japón feudal, un <strong>Bushi (武士)</strong> o guerrero samurái buscaba incansablemente la perfección, la disciplina y el honor en cada movimiento. Para nosotros, <strong>Saiteki (最適)</strong> representa el estado óptimo: el equilibrio perfecto y la máxima excelencia alcanzable.
             </p>
-            <p>
+            <p style={{ margin: 0 }}>
               Al fusionar ambos conceptos creamos el camino del <em>Guerrero Óptimo de la Cocina</em>. Llevamos la rigurosa disciplina del samurái a nuestra barra de sushi y fogones. Cada corte de pescado fresco, la precisión exacta en la temperatura del arroz y la armonía visual de nuestros platos son un tributo a la maestría artesanal japonesa.
             </p>
           </div>
         </section>
 
-        {/* MENÚ DIGITAL TITLE */}
-        <header className="text-center pt-4 border-b border-amber-500/20 pb-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-wider text-amber-500 uppercase font-serif">
-            MENÚ DIGITAL
+        {/* Contenedor del Menú Digital */}
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '35px auto', 
+          padding: '35px 25px',
+          backgroundColor: 'rgba(14, 14, 18, 0.88)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '16px',
+          boxShadow: '0 10px 40px rgba(0, 0, 0, 0.9)',
+          border: '1px solid rgba(212, 175, 55, 0.35)',
+          boxSizing: 'border-box'
+        }}>
+          <h2 style={{ 
+            textAlign: 'center', 
+            fontSize: '2.2rem', 
+            marginBottom: '45px', 
+            borderBottom: '2px solid rgba(243, 156, 18, 0.4)', 
+            paddingBottom: '15px', 
+            color: '#f39c12', 
+            letterSpacing: '2px',
+            textTransform: 'uppercase'
+          }}>
+            Menú Digital
           </h2>
-        </header>
 
-        {/* SECCIONES DEL MENÚ */}
-        <SectionBlock title="APERITIVOS Y ESPECIALIDADES" items={menuData.aperitivos} getWhatsAppLink={getWhatsAppLink} />
-        <SectionBlock title="ROLLS ESPECIALES" items={menuData.rollsEspeciales} getWhatsAppLink={getWhatsAppLink} />
-        <SectionBlock title="HOT ROLLS & TEMPURA" items={menuData.hotRolls} getWhatsAppLink={getWhatsAppLink} />
-        <SectionBlock title="ROLLS CLÁSICOS & VEGGIE" items={menuData.clasicosYVeggie} getWhatsAppLink={getWhatsAppLink} />
-        <SectionBlock title="ENSALADAS & SASHIMIS" items={menuData.ensaladasYSashimis} getWhatsAppLink={getWhatsAppLink} />
+          {menuCategories.map((cat, index) => (
+            <div key={index} style={{ marginBottom: '55px' }}>
+              <h3 style={{ 
+                fontSize: '1.5rem', 
+                color: '#e67e22', 
+                borderLeft: '4px solid #e67e22', 
+                paddingLeft: '14px', 
+                marginBottom: '25px', 
+                textTransform: 'uppercase', 
+                letterSpacing: '1px'
+              }}>
+                {cat.category}
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
+                {cat.items.map((item, idx) => (
+                  <div key={idx} style={{ 
+                    backgroundColor: 'rgba(27, 27, 36, 0.94)', 
+                    border: '1px solid rgba(212, 175, 55, 0.2)', 
+                    borderRadius: '12px', 
+                    overflow: 'hidden', 
+                    boxShadow: '0 8px 25px rgba(0,0,0,0.7)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
+                  }}>
+                    <img src={item.img} alt={item.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                    <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                      <div>
+                        <h4 style={{ margin: '0 0 8px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
+                        <p style={{ color: '#bbb', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: '1.5' }}>{item.desc}</p>
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px' }}>
+                        <span style={{ fontWeight: 'bold', fontSize: '1.35rem', color: '#2ecc71' }}>${item.price}</span>
+                        <a 
+                          href={`https://wa.me/584142044493?text=Hola!%20Quiero%20pedir:%20${encodeURIComponent(item.name)}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ 
+                            fontSize: '0.82rem', 
+                            background: 'linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(39, 174, 96, 0.15))', 
+                            padding: '7px 14px', 
+                            borderRadius: '8px', 
+                            color: '#2ecc71', 
+                            border: '1px solid #2ecc71', 
+                            textDecoration: 'none', 
+                            fontWeight: 'bold',
+                            boxShadow: '0 2px 8px rgba(46, 204, 113, 0.2)'
+                          }}
+                        >
+                          Pedir este plato
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
 
-        {/* HAZ TU PEDIDO DIRECTO */}
-        <section className="bg-black/75 border border-amber-500/30 rounded-2xl p-8 text-center shadow-2xl max-w-3xl mx-auto backdrop-blur-md">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-amber-500 mb-2 font-serif">
-            ¡Haz Tu Pedido Directo!
-          </h3>
-          <p className="text-neutral-300 text-sm mb-6">
-            Atención rápida por WhatsApp o llamadas telefónicas:
-          </p>
+          {/* Sección de Pedidos Directos y Redes Sociales */}
+          <div style={{
+            marginTop: '60px',
+            padding: '30px',
+            backgroundColor: 'rgba(20, 20, 26, 0.95)',
+            borderRadius: '12px',
+            border: '1px solid rgba(212, 175, 55, 0.4)',
+            textAlign: 'center'
+          }}>
+            <h3 style={{ color: '#f39c12', fontSize: '1.8rem', margin: '0 0 10px 0' }}>¡Haz Tu Pedido Directo!</h3>
+            <p style={{ color: '#ccc', marginBottom: '25px' }}>Atención rápida por WhatsApp o llamadas telefónicas:</p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div className="bg-black/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
-              <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
-                LÍNEA PRINCIPAL
-              </span>
-              <a href="tel:04142044493" className="text-amber-400 font-bold text-lg hover:underline mb-2 flex items-center gap-2">
-                📞 0414-2044493
-              </a>
-              <a
-                href="https://wa.me/584142044493"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-emerald-400 text-xs font-semibold hover:underline flex items-center gap-1"
-              >
-                💬 Abrir WhatsApp
-              </a>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginBottom: '30px' }}>
+              <div style={{ backgroundColor: '#181820', padding: '15px 25px', borderRadius: '10px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
+                <p style={{ margin: '0 0 8px 0', color: '#aaa', fontSize: '0.85rem' }}>LÍNEA PRINCIPAL</p>
+                <a href="tel:04142044493" style={{ color: '#f39c12', fontSize: '1.2rem', fontWeight: 'bold', textDecoration: 'none', display: 'block', marginBottom: '8px' }}>
+                  📞 0414-2044493
+                </a>
+                <a href="https://wa.me/584142044493?text=Hola!%20Quiero%20realizar%20un%20pedido" target="_blank" rel="noreferrer" style={{ color: '#2ecc71', fontSize: '0.9rem', textDecoration: 'none', fontWeight: 'bold' }}>
+                  💬 Abrir WhatsApp
+                </a>
+              </div>
+
+              <div style={{ backgroundColor: '#181820', padding: '15px 25px', borderRadius: '10px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
+                <p style={{ margin: '0 0 8px 0', color: '#aaa', fontSize: '0.85rem' }}>LÍNEA SECUNDARIA</p>
+                <a href="tel:04242882861" style={{ color: '#f39c12', fontSize: '1.2rem', fontWeight: 'bold', textDecoration: 'none', display: 'block', marginBottom: '8px' }}>
+                  📞 0424-2882861
+                </a>
+                <a href="https://wa.me/584242882861?text=Hola!%20Quiero%20realizar%20un%20pedido" target="_blank" rel="noreferrer" style={{ color: '#2ecc71', fontSize: '0.9rem', textDecoration: 'none', fontWeight: 'bold' }}>
+                  💬 Abrir WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div className="bg-black/80 border border-neutral-800 rounded-xl p-4 flex flex-col items-center">
-              <span className="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1">
-                LÍNEA SECUNDARIA
-              </span>
-              <a href="tel:04242882861" className="text-amber-400 font-bold text-lg hover:underline mb-2 flex items-center gap-2">
-                📞 0424-2882861
+            <h4 style={{ color: '#fff', margin: '20px 0 15px 0' }}>Síguenos en nuestras redes</h4>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '25px', flexWrap: 'wrap' }}>
+              <a href="https://www.instagram.com/bushisaiteki" target="_blank" rel="noreferrer" style={{ color: '#e1306c', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
+                📸 @bushisaiteki (Instagram)
               </a>
-              <a
-                href="https://wa.me/584242882861"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-emerald-400 text-xs font-semibold hover:underline flex items-center gap-1"
-              >
-                💬 Abrir WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-neutral-800 pt-6">
-            <p className="text-xs text-neutral-400 mb-3 uppercase tracking-wider">
-              Síguenos en nuestras redes
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-4 text-sm">
-              <a
-                href="https://instagram.com/bushisaiteki"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1 font-medium"
-              >
-                📷 @bushisaiteki (Instagram)
-              </a>
-              <a
-                href="https://tiktok.com/@bushi.saiteki"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1 font-medium"
-              >
+              <a href="https://www.tiktok.com/@bushi.saiteki" target="_blank" rel="noreferrer" style={{ color: '#f39c12', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>
                 🎵 @bushi.saiteki (TikTok)
               </a>
             </div>
           </div>
-        </section>
-      </div>
-    </main>
-  );
-}
 
-function SectionBlock({ title, items, getWhatsAppLink }) {
-  return (
-    <section>
-      <h3 className="text-xl sm:text-2xl font-bold text-amber-500 border-l-4 border-amber-500 pl-3 mb-6 uppercase tracking-wide font-serif">
-        {title}
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {items.map((item) => (
-          <article
-            key={item.id}
-            className="bg-black/75 border border-neutral-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg hover:border-amber-500/40 transition-all backdrop-blur-sm"
-          >
-            <div>
-              <div className="relative w-full h-64 bg-neutral-900 overflow-hidden">
-                <img
-                  src={item.imagen}
-                  alt={item.nombre}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <h4 className="text-xl font-bold text-white mb-2">{item.nombre}</h4>
-                <p className="text-neutral-400 text-sm leading-relaxed mb-4">{item.descripcion}</p>
-              </div>
-            </div>
-
-            <div className="p-5 pt-0 flex justify-between items-center mt-auto border-t border-neutral-800/60">
-              <span className="text-emerald-400 font-extrabold text-xl">{item.precio}</span>
-              <a
-                href={getWhatsAppLink(item.nombre)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-emerald-950/80 hover:bg-emerald-900 text-emerald-400 border border-emerald-600/60 text-xs font-semibold px-3 py-2 rounded-lg transition-all flex items-center gap-1.5"
-              >
-                Pedir este plato
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
+        </div>
+      </main>
+    </>
   );
 }
