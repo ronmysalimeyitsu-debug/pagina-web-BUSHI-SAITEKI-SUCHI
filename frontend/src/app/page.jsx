@@ -15,7 +15,7 @@ export default function Home() {
           name: "Tekebuchi Saiteki",
           desc: "Crujientes bocados de mozzarella rellenos con nuestra exclusiva mezcla gratinada de camarones y especias de inspiración japonesa. Dorados a la perfección y acompañados con salsa Fuji y salsa de anguila.",
           price: "6.00",
-          img: "/images/tekebuchi-saiteki.jpg"
+          img: "/images/teque-bushi.jpg" // <-- Imagen actualizada
         },
         {
           name: "Sashimi de Salmón",
@@ -348,7 +348,7 @@ export default function Home() {
           <h2 style={{ 
             textAlign: 'center', 
             fontSize: '2.2rem', 
-            marginBottom: '45px', 
+            marginBottom: '20px', 
             borderBottom: '2px solid rgba(243, 156, 18, 0.4)', 
             paddingBottom: '15px', 
             color: '#f39c12', 
@@ -357,6 +357,28 @@ export default function Home() {
           }}>
             Menú Digital
           </h2>
+
+          {/* Botón para ver la lámina completa en HD */}
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <a
+              href="/images/menu-completo-bushi.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                backgroundColor: '#d4af37',
+                color: '#0c0c10',
+                padding: '12px 24px',
+                borderRadius: '30px',
+                fontWeight: 'bold',
+                textDecoration: 'none',
+                display: 'inline-block',
+                boxShadow: '0 4px 15px rgba(212, 175, 55, 0.4)',
+                fontSize: '0.95rem'
+              }}
+            >
+              📜 Ver Menú Completo Unificado (Imagen HD)
+            </a>
+          </div>
 
           {menuCategories.map((cat, index) => (
             <div key={index} style={{ marginBottom: '55px' }}>
@@ -381,9 +403,20 @@ export default function Home() {
                     boxShadow: '0 8px 25px rgba(0,0,0,0.7)',
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between'
+                    justify: 'space-between'
                   }}>
-                    <img src={item.img} alt={item.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                    {/* Imagen ajustada con objectFit contain y fondo oscuro para ver la foto entera */}
+                    <img 
+                      src={item.img} 
+                      alt={item.name} 
+                      style={{ 
+                        width: '100%', 
+                        height: '210px', 
+                        objectFit: 'contain', 
+                        backgroundColor: '#0c0c10',
+                        padding: '6px'
+                      }} 
+                    />
                     <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                       <div>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
