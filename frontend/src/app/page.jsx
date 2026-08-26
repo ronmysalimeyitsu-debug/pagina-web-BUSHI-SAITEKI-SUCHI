@@ -358,22 +358,23 @@ export default function Home() {
             MENÚ DE PRODUCTOS (MENÚ DE PLATOS)
           </h2>
 
-          {/* Botón para ver la lámina completa en HD */}
+          {/* Botón para ver el Menú Completo en HD */}
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <a
-              href="/images/menu-completo-bushi.jpg"
+              href="/images/menu-bushi-full.jpg"
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 backgroundColor: '#d4af37',
                 color: '#0c0c10',
-                padding: '12px 24px',
+                padding: '14px 28px',
                 borderRadius: '30px',
                 fontWeight: 'bold',
                 textDecoration: 'none',
                 display: 'inline-block',
-                boxShadow: '0 4px 15px rgba(212, 175, 55, 0.4)',
-                fontSize: '0.95rem'
+                boxShadow: '0 4px 18px rgba(212, 175, 55, 0.5)',
+                fontSize: '1rem',
+                border: '1px solid #ffffff'
               }}
             >
               📜 Ver Menú Completo (Imagen HD Actualizada)
@@ -412,8 +413,8 @@ export default function Home() {
                         style={{ 
                           width: '100%', 
                           height: '100%', 
-                          objectFit: 'cover',
-                          objectPosition: 'center'
+                          objectFit: 'fill',
+                          display: 'block'
                         }} 
                       />
                     </div>
