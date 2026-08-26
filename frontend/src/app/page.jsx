@@ -406,7 +406,8 @@ export default function Home() {
                     flexDirection: 'column',
                     justifyContent: 'space-between'
                   }}>
-                    <div style={{ width: '100%', height: '220px', overflow: 'hidden', backgroundColor: '#000' }}>
+                    {/* Contenedor estricto recortado */}
+                    <div style={{ width: '100%', height: '220px', overflow: 'hidden', backgroundColor: '#000', position: 'relative' }}>
                       <img 
                         src={item.img} 
                         alt={item.name} 
@@ -414,7 +415,9 @@ export default function Home() {
                           width: '100%', 
                           height: '100%', 
                           objectFit: 'cover',
-                          objectPosition: 'center'
+                          transform: 'scale(1.35)',
+                          transformOrigin: 'center center',
+                          display: 'block'
                         }} 
                       />
                     </div>
