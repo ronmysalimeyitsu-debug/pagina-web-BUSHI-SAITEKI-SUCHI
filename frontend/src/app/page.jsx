@@ -413,8 +413,8 @@ export default function Home() {
                         style={{ 
                           width: '100%', 
                           height: '100%', 
-                          objectFit: 'fill',
-                          display: 'block'
+                          objectFit: 'cover',
+                          objectPosition: 'center'
                         }} 
                       />
                     </div>
