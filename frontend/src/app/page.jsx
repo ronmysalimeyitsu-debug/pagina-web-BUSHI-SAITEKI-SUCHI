@@ -1,6 +1,10 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const menuCategories = [
     {
       category: "Aperitivos (Appetizers)",
@@ -165,7 +169,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Header Principal con Logo y Kanji */}
+        {/* Header Principal */}
         <header style={{ 
           backgroundColor: 'rgba(12, 12, 16, 0.92)', 
           backdropFilter: 'blur(12px)',
@@ -207,7 +211,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Botones de Contacto y Redes */}
+          {/* Botones de Contacto */}
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '8px' }}>
             <a 
               href="https://wa.me/584142044493?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Bushi%20Saiteki" 
@@ -295,7 +299,7 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Sección "Sobre Nosotros" */}
+        {/* Sobre Nosotros */}
         <section style={{ 
           maxWidth: '1200px', 
           margin: '35px auto 0 auto', 
@@ -333,7 +337,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contenedor del Menú Digital */}
+        {/* Menú Digital */}
         <div style={{ 
           maxWidth: '1200px', 
           margin: '35px auto', 
@@ -358,27 +362,23 @@ export default function Home() {
             MENÚ DE PRODUCTOS (MENÚ DE PLATOS)
           </h2>
 
-          {/* Botón para ver el Menú Completo en HD */}
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <a
-              href="/images/menu-bushi-full.jpg"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsModalOpen(true)}
               style={{
                 backgroundColor: '#d4af37',
                 color: '#0c0c10',
                 padding: '14px 28px',
                 borderRadius: '30px',
                 fontWeight: 'bold',
-                textDecoration: 'none',
-                display: 'inline-block',
-                boxShadow: '0 4px 18px rgba(212, 175, 55, 0.5)',
                 fontSize: '1rem',
-                border: '1px solid #ffffff'
+                border: '1px solid #ffffff',
+                boxShadow: '0 4px 18px rgba(212, 175, 55, 0.5)',
+                cursor: 'pointer'
               }}
             >
-              📜 Ver Menú Completo (Imagen HD Actualizada)
-            </a>
+              📜 Ver Menú Completo (Imágenes Full HD)
+            </button>
           </div>
 
           {menuCategories.map((cat, index) => (
@@ -406,8 +406,8 @@ export default function Home() {
                     flexDirection: 'column',
                     justifyContent: 'space-between'
                   }}>
-                    {/* Contenedor estricto recortado */}
-                    <div style={{ width: '100%', height: '220px', overflow: 'hidden', backgroundColor: '#000', position: 'relative' }}>
+                    {/* Contenedor limpio con objectFit cover */}
+                    <div style={{ width: '100%', height: '220px', backgroundColor: '#0a0a0c', overflow: 'hidden' }}>
                       <img 
                         src={item.img} 
                         alt={item.name} 
@@ -415,13 +415,12 @@ export default function Home() {
                           width: '100%', 
                           height: '100%', 
                           objectFit: 'cover',
-                          transform: 'scale(1.35)',
-                          transformOrigin: 'center center',
+                          objectPosition: 'center',
                           display: 'block'
                         }} 
                       />
                     </div>
-                    <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column', justify: 'space-between' }}>
                       <div>
                         <h4 style={{ margin: '0 0 8px 0', fontSize: '1.3rem', color: '#fff' }}>{item.name}</h4>
                         <p style={{ color: '#bbb', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: '1.5' }}>{item.desc}</p>
@@ -454,7 +453,7 @@ export default function Home() {
             </div>
           ))}
 
-          {/* Sección de Pedidos Directos y Redes Sociales */}
+          {/* Contacto y Redes */}
           <div style={{
             marginTop: '60px',
             padding: '30px',
@@ -500,6 +499,86 @@ export default function Home() {
           </div>
 
         </div>
+
+        {/* Modal / Ventana Emergente */}
+        {isModalOpen && (
+          <div 
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              backgroundColor: 'rgba(0, 0, 0, 0.92)',
+              backdropFilter: 'blur(10px)',
+              zIndex: 9999,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              padding: '20px',
+              boxSizing: 'border-box',
+              overflowY: 'auto'
+            }}
+          >
+            <div style={{
+              width: '100%',
+              maxWidth: '1100px',
+              display: 'flex',
+              justify: 'space-between',
+              alignItems: 'center',
+              marginBottom: '20px',
+              position: 'sticky',
+              top: '0',
+              backgroundColor: 'rgba(12, 12, 16, 0.95)',
+              padding: '12px 20px',
+              borderRadius: '10px',
+              border: '1px solid #d4af37',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.8)',
+              zIndex: 10000
+            }}>
+              <span style={{ color: '#f39c12', fontWeight: 'bold', fontSize: '1.1rem' }}>
+                📜 Menú Bushi Saiteki (Full HD)
+              </span>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                style={{
+                  backgroundColor: '#e74c3c',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  fontSize: '0.95rem'
+                }}
+              >
+                ✖ Cerrar
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', maxWidth: '1100px', width: '100%' }}>
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ color: '#d4af37', marginBottom: '8px', fontWeight: 'bold' }}>PARTE 1: Aperitivos & Rollos Clásicos</p>
+                <img 
+                  src="/images/menu-bushi-full-1.jpg" 
+                  alt="Menú Bushi Saiteki Parte 1" 
+                  style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid rgba(212, 175, 55, 0.4)' }}
+                />
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <p style={{ color: '#d4af37', marginBottom: '8px', fontWeight: 'bold' }}>PARTE 2: Rollos Especiales</p>
+                <img 
+                  src="/images/menu-bushi-full-2.jpg" 
+                  alt="Menú Bushi Saiteki Parte 2" 
+                  style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid rgba(212, 175, 55, 0.4)' }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
       </main>
     </>
   );
