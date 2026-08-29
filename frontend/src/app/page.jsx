@@ -15,7 +15,7 @@ export default function Home() {
       name: "Tekebuchi Saiteki",
       desc: "Crujientes bocados de mozzarella rellenos con nuestra exclusiva mezcla gratinada de camarones y especias de inspiración japonesa. Dorados a la perfección y acompañados con salsa Fuji y salsa de anguila.",
       price: "$6.00",
-      image: "/images/tekebuchi.jpg"
+      image: "/images/tekebuchi-saiteki.jpg"
     },
     {
       name: "Sashimi de Salmón",
@@ -37,7 +37,7 @@ export default function Home() {
       <div className="flex justify-center mb-12">
         <button
           onClick={() => setModalOpen(true)}
-          className="bg-[#1a1d24] border border-amber-500/50 hover:border-amber-400 text-amber-300 font-medium px-6 py-3 rounded-full shadow-lg transition duration-300 flex items-center gap-2"
+          className="bg-[#1a1d24] border border-amber-500/50 hover:border-amber-400 text-amber-300 font-medium px-6 py-3 rounded-full shadow-lg transition duration-300 flex items-center gap-2 cursor-pointer"
         >
           📜 Ver Menú Completo (Imágenes Full HD)
         </button>
@@ -55,12 +55,12 @@ export default function Home() {
               key={index} 
               className="bg-[#14171f] border border-gray-800 rounded-xl overflow-hidden flex flex-col justify-between shadow-md hover:border-gray-700 transition"
             >
-              {/* Contenedor de Imagen Corregido */}
-              <div className="relative w-full h-48 bg-black overflow-hidden flex items-center justify-center">
+              {/* Contenedor de Imagen Forzado a Cubrir Todo */}
+              <div className="w-full h-48 bg-black relative overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.name} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
 
@@ -73,7 +73,7 @@ export default function Home() {
 
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-800/60">
                   <span className="text-emerald-400 font-bold text-lg">{item.price}</span>
-                  <button className="bg-emerald-950/60 hover:bg-emerald-900 text-emerald-400 border border-emerald-800/50 text-xs font-semibold px-3 py-2 rounded-lg transition">
+                  <button className="bg-emerald-950/60 hover:bg-emerald-900 text-emerald-400 border border-emerald-800/50 text-xs font-semibold px-3 py-2 rounded-lg transition cursor-pointer">
                     Pedir este plato
                   </button>
                 </div>
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="bg-[#14171f] border border-gray-700 rounded-2xl max-w-2xl w-full p-6 relative">
             <button 
               onClick={() => setModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer"
             >
               ✕
             </button>
