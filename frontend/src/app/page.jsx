@@ -394,7 +394,8 @@ export default function Home() {
               }}>
                 {cat.category}
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
+              {/* Tarjetas un poco más estrechas para que se vean mejor (minmax a 260px) */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
                 {cat.items.map((item, idx) => (
                   <div key={idx} style={{ 
                     backgroundColor: 'rgba(27, 27, 36, 0.94)', 
@@ -406,17 +407,25 @@ export default function Home() {
                     flexDirection: 'column',
                     justifyContent: 'space-between'
                   }}>
-                    {/* Contenedor limpio con objectFit cover */}
-                    <div style={{ width: '100%', height: '220px', backgroundColor: '#0a0a0c', overflow: 'hidden' }}>
+                    {/* Contenedor de la imagen: Centrado y sin recortes */}
+                    <div style={{ 
+                      width: '100%', 
+                      height: '200px', 
+                      backgroundColor: '#050508', // Fondo súper oscuro para contrastar
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      padding: '15px', // Esto genera un margen interno (reduce el tamaño aparente)
+                      boxSizing: 'border-box'
+                    }}>
                       <img 
                         src={item.img} 
                         alt={item.name} 
                         style={{ 
-                          width: '100%', 
-                          height: '100%', 
-                          objectFit: 'cover',
-                          objectPosition: 'center',
-                          display: 'block'
+                          maxWidth: '100%', 
+                          maxHeight: '100%', 
+                          objectFit: 'contain', // Asegura que se vea toda la foto sin zoom
+                          borderRadius: '8px'
                         }} 
                       />
                     </div>
