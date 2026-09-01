@@ -235,27 +235,6 @@ export default function Home() {
               💬 Pedir WhatsApp 1
             </a>
             <a 
-              href="https://wa.me/584242882861?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Bushi%20Saiteki" 
-              target="_blank" 
-              rel="noreferrer"
-              style={{
-                background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                color: 'white',
-                padding: '9px 18px',
-                borderRadius: '25px',
-                textDecoration: 'none',
-                fontWeight: 'bold',
-                fontSize: '0.9rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 4px 15px rgba(37, 211, 102, 0.35)',
-                border: '1px solid rgba(255, 255, 255, 0.2)'
-              }}
-            >
-              💬 Pedir WhatsApp 2
-            </a>
-            <a 
               href="https://www.instagram.com/bushisaiteki" 
               target="_blank" 
               rel="noreferrer"
@@ -475,16 +454,6 @@ export default function Home() {
                   📞 0414-2044493
                 </a>
                 <a href="https://wa.me/584142044493?text=Hola!%20Quiero%20realizar%20un%20pedido" target="_blank" rel="noreferrer" style={{ color: '#2ecc71', fontSize: '0.9rem', textDecoration: 'none', fontWeight: 'bold' }}>
-                  💬 Abrir WhatsApp
-                </a>
-              </div>
-
-              <div style={{ backgroundColor: '#181820', padding: '15px 25px', borderRadius: '10px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
-                <p style={{ margin: '0 0 8px 0', color: '#aaa', fontSize: '0.85rem' }}>LÍNEA SECUNDARIA</p>
-                <a href="tel:04242882861" style={{ color: '#f39c12', fontSize: '1.2rem', fontWeight: 'bold', textDecoration: 'none', display: 'block', marginBottom: '8px' }}>
-                  📞 0424-2882861
-                </a>
-                <a href="https://wa.me/584242882861?text=Hola!%20Quiero%20realizar%20un%20pedido" target="_blank" rel="noreferrer" style={{ color: '#2ecc71', fontSize: '0.9rem', textDecoration: 'none', fontWeight: 'bold' }}>
                   💬 Abrir WhatsApp
                 </a>
               </div>
