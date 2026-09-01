@@ -374,25 +374,22 @@ export default function Home() {
             </div>
 
             {/* Video: Promo 10$ */}
-            <div style={{ backgroundColor: '#181820', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(212, 175, 55, 0.3)', boxShadow: '0 6px 20px rgba(0,0,0,0.6)' }}>
-              <video 
-                src="/images/promo-video-10.mp4" 
-                controls 
-                autoPlay 
-                muted 
-                loop 
-                playsInline
-                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
-              />
-              <div style={{ padding: '15px', textAlign: 'center' }}>
-                <p style={{ color: '#fff', fontWeight: 'bold', margin: '0 0 5px 0' }}>Mega Promo Combo</p>
-                <p style={{ color: '#f39c12', fontSize: '0.9rem', fontWeight: 'bold', margin: 0 }}>Ref. 10$ - ¡Pídela ya!</p>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
+<div style={{ backgroundColor: '#181820', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(212, 175, 55, 0.3)', boxShadow: '0 6px 20px rgba(0,0,0,0.6)' }}>
+  <video 
+    src="/images/promo-video-10.mp4" 
+    controls 
+    autoPlay 
+    muted 
+    loop 
+    playsInline
+    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+  />
+  <div style={{ padding: '15px', textAlign: 'center' }}>
+    <p style={{ color: '#fff', fontWeight: 'bold', margin: '0 0 5px 0' }}>Mega Promo Combo</p>
+    <p style={{ color: '#f39c12', fontSize: '0.9rem', fontWeight: 'bold', margin: '0 0 5px 0' }}>Ref. 10$ - ¡Pídela ya!</p>
+    <p style={{ color: '#aaa', fontSize: '0.8rem', margin: 0 }}>Válido de martes a viernes</p>
+  </div>
+</div>
         {/* Menú Digital */}
         <div style={{ 
           maxWidth: '1200px', 
