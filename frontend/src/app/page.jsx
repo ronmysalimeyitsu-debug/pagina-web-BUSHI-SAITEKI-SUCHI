@@ -344,7 +344,6 @@ export default function Home() {
             <div style={{ width: '80px', height: '3px', backgroundColor: '#d4af37', margin: '12px auto 0 auto', borderRadius: '2px' }}></div>
           </div>
 
-          {/* Grid para mostrar las 2 imágenes y el video de forma responsiva */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px', alignItems: 'center' }}>
             
             {/* Imagen 1: Flyer San Agustín */}
@@ -374,24 +373,28 @@ export default function Home() {
             </div>
 
             {/* Video: Promo 10$ */}
-<div style={{ backgroundColor: '#181820', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(212, 175, 55, 0.3)', boxShadow: '0 6px 20px rgba(0,0,0,0.6)' }}>
-  <video 
-    src="/images/promo-video-10.mp4" 
-    controls 
-    autoPlay 
-    muted 
-    loop 
-    playsInline
-    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
-  />
-  <div style={{ padding: '15px', textAlign: 'center' }}>
-    <p style={{ color: '#fff', fontWeight: 'bold', margin: '0 0 5px 0' }}>Mega Promo Combo</p>
-    <p style={{ color: '#f39c12', fontSize: '0.9rem', fontWeight: 'bold', margin: '0 0 5px 0' }}>Ref. 10$ - ¡Pídela ya!</p>
-    <p style={{ color: '#aaa', fontSize: '0.8rem', margin: 0 }}>Válido de martes a viernes</p>
-  </div>
-</div>
+            <div style={{ backgroundColor: '#181820', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(212, 175, 55, 0.3)', boxShadow: '0 6px 20px rgba(0,0,0,0.6)' }}>
+              <video 
+                src="/images/promo-video-10.mp4" 
+                controls 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+              />
+              <div style={{ padding: '15px', textAlign: 'center' }}>
+                <p style={{ color: '#ffffff', fontWeight: 'bold', margin: '0 0 5px 0' }}>Mega Promo Combo</p>
+                <p style={{ color: '#f39c12', fontSize: '0.9rem', fontWeight: 'bold', margin: '0 0 5px 0' }}>Ref. 10$ - ¡Pídela ya!</p>
+                <p style={{ color: '#aaaaaa', fontSize: '0.8rem', margin: 0 }}>Válido de martes a viernes</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         {/* Menú Digital */}
-        <div style={{ 
+        <section style={{ 
           maxWidth: '1200px', 
           margin: '35px auto', 
           padding: '35px 25px',
@@ -459,7 +462,6 @@ export default function Home() {
                     flexDirection: 'column',
                     justifyContent: 'space-between'
                   }}>
-                    {/* Contenedor de la imagen corregido sin espacios blancos */}
                     <div style={{ 
                       width: '100%', 
                       height: '200px',
@@ -543,10 +545,9 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </section>
 
-        </div>
-
-        {/* Modal / Ventana Emergente con los nombres exactos de tus fotos de menú */}
+        {/* Modal / Ventana Emergente */}
         {isModalOpen && (
           <div 
             style={{
@@ -614,7 +615,7 @@ export default function Home() {
               </div>
 
               <div style={{ textAlign: 'center' }}>
-                <p style={{ color: '#d4af37', marginBottom: '8px', fontWeight: 'bold'	}}>PARTE 2: Rollos Especiales</p>
+                <p style={{ color: '#d4af37', marginBottom: '8px', fontWeight: 'bold' }}>PARTE 2: Rollos Especiales</p>
                 <img 
                   src="/images/menu-bushi-saiteki2.jpg" 
                   alt="Menú Bushi Saiteki Parte 2" 
