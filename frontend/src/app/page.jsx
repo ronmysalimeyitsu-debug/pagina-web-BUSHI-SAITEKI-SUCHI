@@ -408,8 +408,8 @@ export default function Home() {
                   }}>
                     {/* Contenedor de la imagen corregido sin espacios blancos */}
                     <div style={{ 
-                      width: '200%', 
-                      height: '300px',
+                      width: '150%', 
+                      height: '200px',
                       backgroundColor: '#000',
                       overflow: 'hidden'
                     }}>
